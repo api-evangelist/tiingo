@@ -1,0 +1,88 @@
+{
+    "name": "Tiingo",
+    "description": "Tiingo is a financial web app dedicated to making high-end financial tools accessible to both the everyday and professional investor.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/Screen Shot 2018-01-28 at 6.27.34 PM.png",
+    "tags": [
+        "have api",
+        "market data"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/tiingo\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Tiingo",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/Screen Shot 2018-01-28 at 6.27.34 PM.png",
+            "humanURL": "https:\/\/tiingo.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/tiingo-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/tiingo-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "https:\/\/blog.tiingo.com\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/blog.tiingo.com\/feed\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/tiingo"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/api.tiingo.com"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/api.tiingo.com\/"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/api.tiingo.com\/docs\/general\/overview"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/api.tiingo.com\/"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/api.tiingo.com\/pricing"
+        },
+        {
+            "type": "Privacy Policy",
+            "url": "https:\/\/api.tiingo.com\/privacy\/"
+        },
+        {
+            "type": "Registration",
+            "url": "https:\/\/api.tiingo.com\/docs\/general\/overview"
+        },
+        {
+            "type": "Terms of Service",
+            "url": "https:\/\/api.tiingo.com\/tos\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/RishiPSingh"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/tiingo.com"
+        }
+    ]
+}
