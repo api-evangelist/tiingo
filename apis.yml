@@ -2,22 +2,157 @@ aid: tiingo
 url: https://raw.githubusercontent.com/api-evangelist/tiingo/refs/heads/main/apis.yml
 name: Tiingo
 x-type: company
-description: >-
-  Tiingo provides high-quality financial market data APIs across stocks, crypto, FX, fundamentals, and news, popular among quantitative researchers.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Fintech
   - Market Data
   - Stocks
   - Crypto
+  - FX
   - News
+  - Fundamentals
+  - WebSockets
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+description: >-
+  Tiingo provides high-quality financial market data APIs across US equities, crypto, FX,
+  fundamentals, and news, popular among quantitative researchers. APIs include End-of-Day prices,
+  IEX intraday data, Crypto, Forex, Fundamentals, and News, with REST and WebSocket access at
+  api.tiingo.com.
+apis:
+  - aid: tiingo:end-of-day-api
+    name: Tiingo End-of-Day API
+    tags:
+      - Stocks
+      - End-of-Day
+      - Historical
+      - OHLCV
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.tiingo.com/tiingo/daily
+    humanURL: https://www.tiingo.com/documentation/end-of-day
+    description: Daily OHLCV history for 100,000+ US equities and ETFs back to 1962, with split and dividend adjustments.
+    properties:
+      - type: Documentation
+        url: https://www.tiingo.com/documentation/end-of-day
+    x-features:
+      - 100,000+ US tickers
+      - History back to 1962
+      - Split- and dividend-adjusted
+    x-use-cases:
+      - Long-history backtests
+      - Tax-lot reconciliation against historical closes
+  - aid: tiingo:iex-intraday-api
+    name: Tiingo IEX Intraday API
+    tags:
+      - Stocks
+      - Intraday
+      - Real-time
+      - IEX
+      - WebSocket
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.tiingo.com/iex
+    humanURL: https://www.tiingo.com/documentation/iex
+    description: IEX-sourced intraday quotes and trades over REST and WebSocket - real-time during US market hours.
+    properties:
+      - type: Documentation
+        url: https://www.tiingo.com/documentation/iex
+    x-features:
+      - IEX top-of-book in real time
+      - WebSocket streaming
+      - Aggregated minute bars
+    x-use-cases:
+      - Live trading dashboards
+      - Real-time quote streaming
+  - aid: tiingo:crypto-api
+    name: Tiingo Crypto API
+    tags:
+      - Crypto
+      - Cryptocurrency
+      - Market Data
+      - WebSocket
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.tiingo.com/tiingo/crypto
+    humanURL: https://www.tiingo.com/documentation/crypto
+    description: Crypto top-of-book and trade data aggregated from major exchanges over REST and WebSocket.
+    properties:
+      - type: Documentation
+        url: https://www.tiingo.com/documentation/crypto
+    x-features:
+      - Cross-exchange aggregated quotes
+      - WebSocket streaming
+      - Historical OHLCV
+    x-use-cases:
+      - Crypto research
+      - Cross-exchange arbitrage analysis
+  - aid: tiingo:forex-api
+    name: Tiingo Forex API
+    tags:
+      - Forex
+      - FX
+      - Currencies
+      - WebSocket
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.tiingo.com/tiingo/fx
+    humanURL: https://www.tiingo.com/documentation/forex
+    description: Real-time and historical FX rates for major and emerging-market currency pairs.
+    properties:
+      - type: Documentation
+        url: https://www.tiingo.com/documentation/forex
+    x-features:
+      - Major and emerging-market pairs
+      - Historical and real-time
+      - WebSocket streaming
+    x-use-cases:
+      - Multi-currency reporting
+      - FX strategy backtests
+  - aid: tiingo:fundamentals-api
+    name: Tiingo Fundamentals API
+    tags:
+      - Fundamentals
+      - Financial Statements
+      - Equity Research
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.tiingo.com/tiingo/fundamentals
+    humanURL: https://www.tiingo.com/documentation/fundamentals
+    description: Income statement, balance sheet, cash flow, and corporate event data sourced from SEC filings.
+    properties:
+      - type: Documentation
+        url: https://www.tiingo.com/documentation/fundamentals
+    x-features:
+      - SEC-sourced financials
+      - Quarterly and annual periods
+      - 30+ years of fundamentals (paid tier)
+    x-use-cases:
+      - Equity research
+      - Factor model construction
+  - aid: tiingo:news-api
+    name: Tiingo News API
+    tags:
+      - News
+      - Sentiment
+      - Equity Research
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.tiingo.com/tiingo/news
+    humanURL: https://www.tiingo.com/documentation/news
+    description: Tagged equity news from 1,000+ publishers with ticker, topic, and source filters.
+    properties:
+      - type: Documentation
+        url: https://www.tiingo.com/documentation/news
+    x-features:
+      - Ticker- and topic-tagged feed
+      - 1,000+ publishers
+      - Historical archive
+    x-use-cases:
+      - News-based trading signals
+      - Compliance / surveillance
 common:
-  - type: Website
+  - type: Portal
     url: https://www.tiingo.com/
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/general/overview
+  - type: Pricing
+    url: https://www.tiingo.com/about/pricing
   - type: Plans
     url: plans/tiingo-plans-pricing.yml
   - type: RateLimits

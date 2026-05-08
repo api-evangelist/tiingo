@@ -5,21 +5,19 @@ provider: Tiingo
 providerId: tiingo
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- Fintech
-- Market Data
-- Stocks
-- Crypto
-- News
-- FinOps
-- Cost Management
-- FOCUS
-description: FOCUS-aligned FinOps placeholder for Tiingo. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+  - Fintech
+  - Market Data
+  - FinOps
+  - FOCUS
+description: >-
+  FinOps view of Tiingo. Subscription-based with a free non-commercial Power User plan, a small
+  Commercial subscription (~$10/month), and add-on subscriptions for Fundamentals (~$50/month).
+  Allocation is by API token; there is no usage-based billing beyond the rate cap.
 sources:
-- https://www.tiingo.com/
-- https://focus.finops.org/focus-specification/v1-3/
+  - https://www.tiingo.com/about/pricing
+  - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -29,38 +27,42 @@ alignedWith:
 publisherName: Tiingo
 serviceCategory: Fintech
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
-  - Usage
-  - Purchase
-  - Adjustment
+    - Subscription
+    - Adjustment
 focusColumns:
-  ServiceName: Tiingo
+  ServiceName: Tiingo Market Data API
   ServiceCategory: Fintech
   ProviderName: Tiingo
   PublisherName: Tiingo
   InvoiceIssuerName: Tiingo
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Subscription
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
-  aggregation: sum
-  dimensions:
-  - account
-  - resource
+  - name: subscription
+    description: Monthly Power User or Commercial subscription per token.
+    unit: month
+    aggregation: sum
+    dimensions:
+      - token
+  - name: fundamentals_addon
+    description: Monthly Fundamentals subscription add-on.
+    unit: month
+    aggregation: sum
+    dimensions:
+      - token
 principles:
-- name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
-- name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
-- name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
-- name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  - name: Visibility
+    description: Tag each Tiingo token to a single owning workload.
+  - name: Allocation
+    description: Allocate subscription to consuming product. Commercial use requires paid plan.
+  - name: Optimization
+    description: Drop Fundamentals add-on if research has moved to a different vendor.
+  - name: Accountability
+    description: Assign a billing owner per token; review at renewal.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com

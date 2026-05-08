@@ -7,29 +7,43 @@ created: '2026-05-08'
 modified: '2026-05-08'
 reconciled: false
 tags:
-- Fintech
-- Market Data
-- Stocks
-- Crypto
-- News
-- Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for Tiingo. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+  - Fintech
+  - Market Data
+  - Rate Limiting
+description: >-
+  Tiingo enforces hourly request caps that vary by plan. The free Power User plan permits roughly
+  50 requests per hour; the Commercial plan permits roughly 5,000 requests per hour. Symbol-level
+  request caps and unique-symbol caps also apply. WebSocket connections are limited per token.
+notes: Limits partially reconciled - documentation page was minimally accessible during research;
+  figures reflect long-standing published values.
 sources:
-- https://www.tiingo.com/
+  - https://www.tiingo.com/documentation/general/overview
+  - https://www.tiingo.com/about/pricing
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  - name: Power User (Free) - hourly
+    scope: token
+    metric: requests_per_hour
+    limit: 50
+  - name: Commercial - hourly
+    scope: token
+    metric: requests_per_hour
+    limit: 5000
+  - name: Daily unique symbols (Free)
+    scope: token
+    metric: unique_symbols_per_day
+    limit: 500
+  - name: WebSocket connections
+    scope: token
+    metric: concurrent_connections
+    limit: 1
+    notes: One WebSocket connection per token; multiplex symbols within it.
 policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  - name: Backoff Strategy
+    description: On 429 honor any Retry-After header and apply exponential backoff with jitter.
+  - name: Symbol Multiplexing
+    description: Subscribe to multiple symbols within a single WebSocket connection to stay under connection cap.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
