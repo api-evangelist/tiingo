@@ -1,0 +1,29 @@
+aid: tiingo
+url: https://raw.githubusercontent.com/api-evangelist/tiingo/refs/heads/main/apis.yml
+name: Tiingo
+x-type: company
+description: >-
+  Tiingo provides high-quality financial market data APIs across stocks, crypto, FX, fundamentals, and news, popular among quantitative researchers.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Fintech
+  - Market Data
+  - Stocks
+  - Crypto
+  - News
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.tiingo.com/
+  - type: Plans
+    url: plans/tiingo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tiingo-rate-limits.yml
+  - type: FinOps
+    url: finops/tiingo-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
