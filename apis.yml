@@ -1,7 +1,7 @@
 aid: tiingo
 url: https://raw.githubusercontent.com/api-evangelist/tiingo/refs/heads/main/apis.yml
 name: Tiingo
-x-type: company
+kind: company
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Fintech
