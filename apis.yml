@@ -147,6 +147,10 @@ apis:
       - News-based trading signals
       - Compliance / surveillance
 common:
+  - type: GitHubOrganization
+    url: https://github.com/tiingo
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/tiingo
   - type: Portal
     url: https://www.tiingo.com/
   - type: Documentation
