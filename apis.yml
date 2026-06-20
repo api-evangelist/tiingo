@@ -2,7 +2,7 @@ aid: tiingo
 url: https://raw.githubusercontent.com/api-evangelist/tiingo/refs/heads/main/apis.yml
 name: Tiingo
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Fintech
   - Market Data
@@ -28,7 +28,7 @@ apis:
       - End-of-Day
       - Historical
       - OHLCV
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.tiingo.com/tiingo/daily
     humanURL: https://www.tiingo.com/documentation/end-of-day
     description: Daily OHLCV history for 100,000+ US equities and ETFs back to 1962, with split and dividend adjustments.
@@ -50,7 +50,7 @@ apis:
       - Real-time
       - IEX
       - WebSocket
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.tiingo.com/iex
     humanURL: https://www.tiingo.com/documentation/iex
     description: IEX-sourced intraday quotes and trades over REST and WebSocket - real-time during US market hours.
@@ -71,7 +71,7 @@ apis:
       - Cryptocurrency
       - Market Data
       - WebSocket
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.tiingo.com/tiingo/crypto
     humanURL: https://www.tiingo.com/documentation/crypto
     description: Crypto top-of-book and trade data aggregated from major exchanges over REST and WebSocket.
@@ -92,7 +92,7 @@ apis:
       - FX
       - Currencies
       - WebSocket
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.tiingo.com/tiingo/fx
     humanURL: https://www.tiingo.com/documentation/forex
     description: Real-time and historical FX rates for major and emerging-market currency pairs.
@@ -112,7 +112,7 @@ apis:
       - Fundamentals
       - Financial Statements
       - Equity Research
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.tiingo.com/tiingo/fundamentals
     humanURL: https://www.tiingo.com/documentation/fundamentals
     description: Income statement, balance sheet, cash flow, and corporate event data sourced from SEC filings.
@@ -132,7 +132,7 @@ apis:
       - News
       - Sentiment
       - Equity Research
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.tiingo.com/tiingo/news
     humanURL: https://www.tiingo.com/documentation/news
     description: Tagged equity news from 1,000+ publishers with ticker, topic, and source filters.
