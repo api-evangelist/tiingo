@@ -147,6 +147,8 @@ apis:
       - News-based trading signals
       - Compliance / surveillance
 common:
+  - type: DomainSecurity
+    url: security/tiingo-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/tiingo
   - type: LinkedIn
@@ -163,6 +165,8 @@ common:
     url: rate-limits/tiingo-rate-limits.yml
   - type: FinOps
     url: finops/tiingo-finops.yml
+  - url: https://www.tiingo.com/blog/feed/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
