@@ -1,0 +1,384 @@
+generated: '2026-07-22'
+method: generated
+source: openapi/tiingo-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 37
+  by_action_class:
+    connected: 37
+  by_consequence:
+    read: 37
+  human_in_the_loop_required: 0
+operations:
+- path: /tiingo/daily/{ticker}
+  method: get
+  operationId: getDailyMeta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/daily/{ticker}/prices
+  method: get
+  operationId: getDailyPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/corporate-actions/{ticker}/distribution-yield
+  method: get
+  operationId: getDistributionYield
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/corporate-actions/{ticker}/distributions
+  method: get
+  operationId: getTickerDistributions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/corporate-actions/distributions
+  method: get
+  operationId: getBulkDistributions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/corporate-actions/{ticker}/splits
+  method: get
+  operationId: getTickerSplits
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/corporate-actions/splits
+  method: get
+  operationId: getBulkSplits
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/news
+  method: get
+  operationId: listNews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/news/bulk_download
+  method: get
+  operationId: listNewsBulkFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/news/bulk_download/{id}
+  method: get
+  operationId: downloadNewsBulkFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/crypto
+  method: get
+  operationId: listCryptoMeta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/crypto/top
+  method: get
+  operationId: getCryptoTopOfBook
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/crypto/prices
+  method: get
+  operationId: getCryptoPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/crypto-yield/platforms
+  method: get
+  operationId: listCryptoYieldPlatforms
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/crypto-yield/pools
+  method: get
+  operationId: listCryptoYieldPools
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/crypto-yield/ticks
+  method: get
+  operationId: getCryptoYieldTicks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/crypto-yield/{poolCode}/metrics
+  method: get
+  operationId: getCryptoYieldMetrics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /iex
+  method: get
+  operationId: getIexTopOfBook
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /iex/{ticker}/prices
+  method: get
+  operationId: getIexHistoricalPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /boats
+  method: get
+  operationId: getBoatsTopOfBook
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /boats/{ticker}/prices
+  method: get
+  operationId: getBoatsHistoricalPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/equity/intraday
+  method: get
+  operationId: getEquityRealtimeTopOfBook
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/equity/intraday/{ticker}/prices
+  method: get
+  operationId: getEquityRealtimeHistoricalPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /smallx/meta
+  method: get
+  operationId: getSmallXMeta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /smallx/tops
+  method: get
+  operationId: getSmallXTopOfBook
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /smallx/{ticker}/prices
+  method: get
+  operationId: getSmallXIntradayPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /smallx/{ticker}/eod
+  method: get
+  operationId: getSmallXEodPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/fx/top
+  method: get
+  operationId: getForexTopOfBook
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/fx/{ticker}/prices
+  method: get
+  operationId: getForexPrices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/fundamentals/definitions
+  method: get
+  operationId: getFundamentalsDefinitions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/fundamentals/meta
+  method: get
+  operationId: getFundamentalsMeta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/fundamentals/{ticker}/statements
+  method: get
+  operationId: getFundamentalsStatements
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/fundamentals/{ticker}/daily
+  method: get
+  operationId: getFundamentalsDaily
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/funds/{ticker}
+  method: get
+  operationId: getFundFees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/funds/{ticker}/metrics
+  method: get
+  operationId: getFundFeeMetrics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tiingo/utilities/search
+  method: get
+  operationId: searchAssets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/test
+  method: get
+  operationId: testConnection
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

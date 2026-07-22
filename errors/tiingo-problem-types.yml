@@ -1,0 +1,29 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/tiingo-openapi.yml + https://www.tiingo.com/documentation/general/overview
+format: provider-specific
+notes: Tiingo does not publish an RFC 9457 problem-details catalog. Error semantics derived from the documented
+  auth and usage-limit model, the connectivity-test endpoints, and the WebSocket messageType contract.
+problems:
+- status: 401
+  title: Missing or invalid API token
+  detail: 'All REST requests must carry the account API token, either as ?token= in the URL or as an Authorization:
+    Token <token> header.'
+  remediation: Create a free account and pass the assigned API token; tokens can be rotated on the account Token
+    page.
+- status: 404
+  title: Unknown resource or ticker
+  detail: Returned for unknown endpoints or unmatched tickers/identifiers.
+- status: 429
+  title: Usage limit exceeded
+  detail: Tiingo limits by hourly requests (reset every hour), daily requests (reset every day at midnight EST),
+    and monthly bandwidth (reset the first of every month at midnight EST). There is no per-minute or per-second
+    rate limit.
+  remediation: Wait for the limit window to reset, upgrade to a Power/Commercial plan, or email sales@tiingo.com
+    for custom limits.
+  see: rate-limits/tiingo-rate-limits.yml
+- channel: websocket
+  code: E
+  title: WebSocket error message
+  detail: On WebSocket feeds, frames with messageType "E" carry error messages; "H" heartbeats are sent every 30
+    seconds and can usually be ignored.

@@ -1,0 +1,56 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.tiingo.com/documentation/tools
+notes: Tiingo publishes no first-party SDKs; it maintains a curated third-party tools/packages page in its documentation
+  (1.1.7 / documentation 'tools' route). Entries below are community client libraries listed by Tiingo's own docs
+  plus registry lookups. None are first-party, so official is false throughout.
+packages:
+- language: python
+  registry: pypi
+  name: tiingo
+  url: https://pypi.org/project/tiingo/
+  install: pip install tiingo
+  official: false
+  description: tiingo-python - open-source Python client for Tiingo, listed on Tiingo's documentation tools page.
+  repository: https://github.com/hydrosquall/tiingo-python
+- language: python
+  registry: pypi
+  name: pandas-datareader
+  url: https://pypi.org/project/pandas-datareader/
+  install: pip install pandas-datareader
+  official: false
+  description: pandas-datareader integrates multiple data sources including Tiingo (listed by Tiingo docs).
+  repository: https://github.com/pydata/pandas-datareader
+- language: r
+  registry: cran
+  name: riingo
+  url: https://github.com/business-science/riingo
+  install: install.packages("riingo")
+  official: false
+  description: Open-source R package that integrates Tiingo's APIs (listed by Tiingo docs).
+- language: r
+  registry: cran
+  name: quantmod
+  url: https://github.com/joshuaulrich/quantmod
+  install: install.packages("quantmod")
+  official: false
+  description: Open-source R package integrating multiple data sources, including Tiingo (listed by Tiingo docs).
+- language: java
+  registry: github
+  name: tiingoclient
+  url: https://github.com/feikede/tiingoclient
+  official: false
+  description: Open-source Java client for Tiingo (listed by Tiingo docs).
+- language: matlab
+  registry: matlab-file-exchange
+  name: Fetch financial price series from Tiingo
+  url: http://www.mathworks.com/matlabcentral/fileexchange/64771-fetch-financial-price-series-from-tiingo
+  official: false
+  description: MATLAB package to query price data from Tiingo (listed by Tiingo docs).
+- language: javascript
+  registry: npm
+  name: tiingo-stream
+  url: https://www.npmjs.com/package/tiingo-stream
+  install: npm install tiingo-stream
+  official: false
+  description: Community Node.js package for connecting to Tiingo WebSocket streams (npm registry search).

@@ -1,0 +1,36 @@
+generated: '2026-07-22'
+method: searched
+docs: https://www.tiingo.com/documentation/general/connecting
+source: https://www.tiingo.com/documentation/general/connecting
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+  - header
+  oauth2_flows: []
+notes: Every account is assigned a single API token used in place of username/password. REST accepts the token either
+  directly in the URL (?token=...) or in the Authorization header formatted as 'Token <token>'. WebSocket subscribe/unsubscribe
+  requests carry the token in the 'authorization' field of the JSON payload. Token rotation is available on the
+  account Token page (announced in the 2026-05-12 changelog). No OAuth surface.
+schemes:
+- name: apiTokenQuery
+  type: apiKey
+  in: query
+  parameter: token
+  sources:
+  - openapi/tiingo-openapi.yml
+- name: apiTokenHeader
+  type: apiKey
+  in: header
+  parameter: Authorization
+  format: Token <api-token>
+  sources:
+  - openapi/tiingo-openapi.yml
+- name: websocketAuthorization
+  type: apiKey
+  in: message
+  parameter: authorization
+  notes: JSON field on every WebSocket subscribe/unsubscribe request.
+  sources:
+  - asyncapi/tiingo-websockets-asyncapi.yml

@@ -2,7 +2,19 @@ aid: tiingo
 url: https://raw.githubusercontent.com/api-evangelist/tiingo/refs/heads/main/apis.yml
 name: Tiingo
 kind: company
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tiingo.png
 tags:
   - Fintech
   - Market Data
@@ -13,7 +25,7 @@ tags:
   - Fundamentals
   - WebSockets
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-07-22'
 specificationVersion: '0.19'
 description: >-
   Tiingo provides high-quality financial market data APIs across US equities, crypto, FX,
@@ -35,6 +47,8 @@ apis:
     properties:
       - type: Documentation
         url: https://www.tiingo.com/documentation/end-of-day
+      - type: OpenAPI
+        url: openapi/tiingo-openapi.yml
     x-features:
       - 100,000+ US tickers
       - History back to 1962
@@ -57,6 +71,10 @@ apis:
     properties:
       - type: Documentation
         url: https://www.tiingo.com/documentation/iex
+      - type: OpenAPI
+        url: openapi/tiingo-openapi.yml
+      - type: AsyncAPI
+        url: asyncapi/tiingo-websockets-asyncapi.yml
     x-features:
       - IEX top-of-book in real time
       - WebSocket streaming
@@ -78,6 +96,10 @@ apis:
     properties:
       - type: Documentation
         url: https://www.tiingo.com/documentation/crypto
+      - type: OpenAPI
+        url: openapi/tiingo-openapi.yml
+      - type: AsyncAPI
+        url: asyncapi/tiingo-websockets-asyncapi.yml
     x-features:
       - Cross-exchange aggregated quotes
       - WebSocket streaming
@@ -99,6 +121,10 @@ apis:
     properties:
       - type: Documentation
         url: https://www.tiingo.com/documentation/forex
+      - type: OpenAPI
+        url: openapi/tiingo-openapi.yml
+      - type: AsyncAPI
+        url: asyncapi/tiingo-websockets-asyncapi.yml
     x-features:
       - Major and emerging-market pairs
       - Historical and real-time
@@ -119,6 +145,8 @@ apis:
     properties:
       - type: Documentation
         url: https://www.tiingo.com/documentation/fundamentals
+      - type: OpenAPI
+        url: openapi/tiingo-openapi.yml
     x-features:
       - SEC-sourced financials
       - Quarterly and annual periods
@@ -139,6 +167,8 @@ apis:
     properties:
       - type: Documentation
         url: https://www.tiingo.com/documentation/news
+      - type: OpenAPI
+        url: openapi/tiingo-openapi.yml
     x-features:
       - Ticker- and topic-tagged feed
       - 1,000+ publishers
@@ -147,6 +177,8 @@ apis:
       - News-based trading signals
       - Compliance / surveillance
 common:
+  - type: AgenticAccess
+    url: agentic-access/tiingo-agentic-access.yml
   - type: DomainSecurity
     url: security/tiingo-domain-security.yml
   - type: GitHubOrganization
@@ -167,6 +199,48 @@ common:
     url: finops/tiingo-finops.yml
   - url: https://www.tiingo.com/blog/feed/
     type: Blog
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Packages
+    url: packages/tiingo-packages.yml
+  - type: MCPServer
+    url: mcp/tiingo-mcp.yml
+  - type: LLMsTxt
+    url: llms/tiingo-llms.txt
+  - type: Overlay
+    url: overlays/tiingo-openapi-overlay.yaml
+  - type: Conformance
+    url: conformance/tiingo-conformance.yml
+  - type: ErrorCatalog
+    url: errors/tiingo-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/tiingo-lifecycle.yml
+  - type: StatusPage
+    url: https://status.tiingo.com/
+  - type: ChangeLog
+    url: changelog/tiingo-changelog.yml
+  - type: Authentication
+    url: authentication/tiingo-authentication.yml
+  - type: Sandbox
+    url: sandbox/tiingo-sandbox.yml
+  - type: Conventions
+    url: conventions/tiingo-conventions.yml
+  - type: DataModel
+    url: data-model/tiingo-data-model.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: APIReference
+    url: https://www.tiingo.com/documentation/general/overview
+  - type: GettingStarted
+    url: https://www.tiingo.com/documentation/general/connecting
+  - type: Support
+    url: https://www.tiingo.com/support
+  - type: TermsOfService
+    url: https://www.tiingo.com/tos
+  - type: PrivacyPolicy
+    url: https://www.tiingo.com/privacy
+  - type: SignUp
+    url: https://www.tiingo.com/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

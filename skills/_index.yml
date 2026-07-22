@@ -1,0 +1,31 @@
+generated: '2026-07-22'
+method: generated
+skills:
+- file: tiingo-eod-price-history.md
+  name: Pull end-of-day price history for backtesting
+  api: openapi/tiingo-openapi.yml
+  operations:
+  - getDailyMeta
+  - getDailyPrices
+- file: tiingo-market-news-scan.md
+  name: Scan ticker-tagged market news
+  api: openapi/tiingo-openapi.yml
+  operations:
+  - searchAssets
+  - listNews
+- file: tiingo-crypto-fx-snapshot.md
+  name: Snapshot crypto and forex markets
+  api: openapi/tiingo-openapi.yml
+  operations:
+  - getCryptoTopOfBook
+  - getCryptoPrices
+  - getForexTopOfBook
+  - getForexPrices
+- file: tiingo-fundamentals-research.md
+  name: Research company fundamentals
+  api: openapi/tiingo-openapi.yml
+  operations:
+  - getFundamentalsMeta
+  - getFundamentalsStatements
+  - getFundamentalsDaily
+  - getFundamentalsDefinitions

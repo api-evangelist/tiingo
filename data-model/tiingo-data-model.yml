@@ -1,0 +1,71 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/tiingo-openapi.yml
+entities:
+- name: Ticker
+  description: US equity/ETF/mutual fund symbol; share classes use dashes (BRK-A). Full list in supported_tickers.zip.
+- name: PermaTicker
+  description: Tiingo's stable identifier for a company, usable for delisted symbols on Fundamentals endpoints.
+- name: DailyPriceBar
+  description: End-of-day OHLCV bar with split/dividend adjustments.
+- name: Distribution
+  description: Dividend distribution corporate action keyed by ex-date.
+- name: Split
+  description: Split corporate action keyed by ex-date.
+- name: NewsArticle
+  description: Curated news article tagged with tickers and topic tags.
+- name: CryptoTicker
+  description: Crypto pair symbol (e.g. btcusd) with base/quote currencies.
+- name: YieldPool
+  description: Crypto yield pool on a yield platform, identified by poolCode.
+- name: FxPair
+  description: Currency pair symbol (e.g. audusd).
+- name: FundamentalsStatement
+  description: Financial statement data (income statement, balance sheet, cash flow) per period.
+- name: Fund
+  description: Mutual fund / ETF with fee data and other share classes.
+relationships:
+- from: Ticker
+  to: DailyPriceBar
+  type: has_many
+  via: /tiingo/daily/{ticker}/prices
+- from: Ticker
+  to: Distribution
+  type: has_many
+  via: /tiingo/corporate-actions/{ticker}/distributions
+- from: Ticker
+  to: Split
+  type: has_many
+  via: /tiingo/corporate-actions/{ticker}/splits
+- from: Ticker
+  to: NewsArticle
+  type: has_many
+  via: NewsArticle.tickers[]
+- from: Ticker
+  to: PermaTicker
+  type: has_one
+  via: fundamentals meta permaTicker field
+- from: PermaTicker
+  to: FundamentalsStatement
+  type: has_many
+  via: /tiingo/fundamentals/{ticker}/statements
+- from: CryptoTicker
+  to: CryptoPriceBar
+  type: has_many
+  via: /tiingo/crypto/prices priceData[]
+- from: YieldPlatform
+  to: YieldPool
+  type: has_many
+  via: pools platformCodes filter
+- from: YieldPool
+  to: YieldMetrics
+  type: has_many
+  via: /tiingo/crypto-yield/{poolCode}/metrics
+- from: FxPair
+  to: ForexPriceBar
+  type: has_many
+  via: /tiingo/fx/{ticker}/prices
+- from: Fund
+  to: FundFeeMetrics
+  type: has_many
+  via: /tiingo/funds/{ticker}/metrics

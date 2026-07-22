@@ -1,0 +1,19 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.tiingo.com/documentation/general/connecting
+kind: connectivity-test
+notes: Tiingo has no separate sandbox environment, test keys, or fixture data - the free plan runs against live
+  data. What it does publish are connectivity/auth test surfaces, captured here; no test values are invented.
+surfaces:
+- name: REST connectivity test
+  url: https://api.tiingo.com/api/test/
+  auth: API token (query or header)
+  response: '{''message'': ''You successfully sent a request''}'
+  purpose: Verify credentials and connectivity before calling data endpoints.
+- name: WebSocket test channel
+  url: wss://api.tiingo.com/test
+  auth: authorization field in subscribe payload
+  purpose: Verify WebSocket connectivity, subscribe protocol, and heartbeats without consuming a data feed.
+free_tier:
+  notes: All accounts are free by default with generous usage limits, so live experimentation is the intended onboarding
+    path (docs 1.1.2).

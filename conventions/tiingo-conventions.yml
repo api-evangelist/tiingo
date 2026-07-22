@@ -1,0 +1,67 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.tiingo.com/documentation/general/overview + https://www.tiingo.com/documentation/general/connecting
+authentication:
+  style: api-token
+  details: 'Token passed as ?token= query parameter or Authorization: Token <token> header; WebSocket subscribes
+    carry it in the authorization JSON field.'
+  see: authentication/tiingo-authentication.yml
+http_surface:
+  methods:
+  - GET
+  notes: The entire public data API is read-only HTTP GET; there are no write operations. WebSocket channels handle
+    real-time streaming.
+idempotency:
+  header: null
+  notes: No idempotency-key contract is published; the public REST surface is read-only GET, so requests are safe
+    to retry, but no Idempotency-Key mechanism exists.
+response_formats:
+  default: json
+  supported:
+  - json
+  - csv
+  parameter: format
+  notes: CSV is a bare-bones return type that is often 4-5x faster than JSON; supported formats are flagged at the
+    top of each documentation page.
+pagination:
+  style: limit-offset
+  parameters:
+  - limit
+  - offset
+  notes: News uses limit (default 100, max 1000) and offset; asset search uses limit (default 10, max 100); historical
+    endpoints use startDate/endDate windowing instead.
+sorting:
+  parameter: sort
+  notes: Prepend "-" for descending order (e.g. sort=-date); News supports sortBy=publishedDate|crawlDate.
+resampling:
+  parameter: resampleFreq
+  notes: Historical endpoints resample to daily/weekly/monthly/annually (EOD) or minute/hour frequencies (intraday,
+    e.g. 5min, 1hour).
+symbology:
+  notes: Tiingo uses dashes instead of periods for share classes (BRK-A, SPG-P-J). Crypto DEX state prices use the
+    tngosp prefix; full ticker list published in supported_tickers.zip, updated daily. See https://www.tiingo.com/documentation/appendix/symbology.
+  docs: https://www.tiingo.com/documentation/appendix/symbology
+rate_limits:
+  signaling: 429 status
+  notes: Hourly requests (reset hourly), daily requests (reset midnight EST), monthly bandwidth (reset first of
+    month, midnight EST); no per-minute/second limiting.
+  see: rate-limits/tiingo-rate-limits.yml
+versioning:
+  scheme: none
+  see: lifecycle/tiingo-lifecycle.yml
+error_envelope:
+  see: errors/tiingo-problem-types.yml
+websockets:
+  message_types:
+    A: new data
+    U: update existing data
+    D: delete existing data
+    I: informational/meta data
+    E: error messages
+    H: heartbeat (every 30 seconds)
+  subscription: subscribe/unsubscribe eventName with authorization and eventData (thresholdLevel, tickers); first
+    successful response returns a subscriptionId used to add/remove tickers.
+  see: asyncapi/tiingo-websockets-asyncapi.yml
+data_licensing:
+  notes: 'Basic/Power plans: internal and personal use only, no redistribution. Commercial: internal commercial
+    use. Redistribution requires a separate flat-rate license via sales@tiingo.com.'

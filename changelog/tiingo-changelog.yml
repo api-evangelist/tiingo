@@ -1,0 +1,47 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.tiingo.com/documentation/appendix/changelog
+scheme: dated entries, most recent first; no semantic versioning
+entries:
+- date: '2026-07-21'
+  breaking: false
+  highlights:
+  - 'New BOATS Overnight Real-time API (beta): venue-native Blue Ocean ATS equity data for the overnight session
+    (8:00 PM-3:59 AM ET) under /boats REST plus wss://api.tiingo.com/boats firehose; 12,000+ quotable US equities;
+    requires BOATS add-on entitlement (+$9/month on Power and Commercial plans).'
+- date: '2026-07-07'
+  breaking: false
+  highlights:
+  - 'New Equity Realtime API (beta): consolidated realtime equity snapshots from multiple venues under /tiingo/equity/intraday
+    (REST + WebSocket), market hours 4am-8pm ET.'
+  - 'EOD composite feeds: better upcoming corporate-action tracking and two new cleansing checks.'
+  - Symbology documented for Crypto DEX State Prices (tngosp prefix) and Crypto Synthetics.
+- date: '2026-05-12'
+  breaking: false
+  highlights:
+  - Data center migration and infrastructure boost.
+  - API token rotation now available via the account Token page.
+  - Large corporate-actions coverage improvements; improved IEX reference price formula; crypto coverage now 160+
+    DEXes and CEXes; new news sources.
+- date: '2026-03-20'
+  breaking: false
+  highlights:
+  - Massive corporate-actions improvement across equities, ETFs, and mutual funds.
+  - Improved asReported=true for Fundamentals Daily endpoints.
+  - News API now covers 70+ million articles.
+- date: '2026-01-31'
+  breaking: false
+  highlights:
+  - Documented permaTicker query support for Fundamentals /statements and /daily endpoints.
+  - Additional FX assets; improved crypto blockchain-outage recovery.
+- date: '2025-12-31'
+  breaking: false
+  highlights:
+  - WebSocket subscribes now normalize symbol case automatically.
+  - 'Crypto coverage massively expanded: 140+ CEXes/DEXes with native blockchain/DEX support.'
+  - Hybrid state and top-of-book benchmark algorithms for Perp DEXes.
+- date: '2025-01-10'
+  breaking: true
+  highlights:
+  - Changes to handle IEX market data policy changes effective 2025-02-01, including a new thresholdLevel 6 derived
+    data stream (tngoLast) on the IEX WebSocket.

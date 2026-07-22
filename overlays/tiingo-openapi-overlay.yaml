@@ -1,0 +1,73 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Tiingo API
+  version: 1.0.0
+  x-apievangelist:
+    generated: '2026-07-22'
+    method: generated
+extends: openapi/tiingo-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: tiingo
+      rating-repo: https://github.com/api-evangelist/tiingo
+      artifacts:
+      - asyncapi/tiingo-websockets-asyncapi.yml
+      - conventions/tiingo-conventions.yml
+      - errors/tiingo-problem-types.yml
+      - rate-limits/tiingo-rate-limits.yml
+- target: $.tags[?(@.name=='End-of-Day')]
+  update:
+    x-features:
+    - 100,000+ US tickers
+    - History back to 1962
+    - Split- and dividend-adjusted
+    x-use-cases:
+    - Long-history backtests
+    - Tax-lot reconciliation against historical closes
+- target: $.tags[?(@.name=='IEX')]
+  update:
+    x-features:
+    - IEX top-of-book in real time
+    - WebSocket streaming
+    - Aggregated minute bars
+    x-use-cases:
+    - Live trading dashboards
+    - Real-time quote streaming
+- target: $.tags[?(@.name=='Crypto')]
+  update:
+    x-features:
+    - Cross-exchange aggregated quotes
+    - WebSocket streaming
+    - Historical OHLCV
+    x-use-cases:
+    - Crypto research
+    - Cross-exchange arbitrage analysis
+- target: $.tags[?(@.name=='Forex')]
+  update:
+    x-features:
+    - Major and emerging-market pairs
+    - Historical and real-time
+    - WebSocket streaming
+    x-use-cases:
+    - Multi-currency reporting
+    - FX strategy backtests
+- target: $.tags[?(@.name=='Fundamentals')]
+  update:
+    x-features:
+    - SEC-sourced financials
+    - Quarterly and annual periods
+    - 30+ years of fundamentals (paid tier)
+    x-use-cases:
+    - Equity research
+    - Factor model construction
+- target: $.tags[?(@.name=='News')]
+  update:
+    x-features:
+    - Ticker- and topic-tagged feed
+    - 1,000+ publishers
+    - Historical archive
+    x-use-cases:
+    - News-based trading signals
+    - Compliance / surveillance

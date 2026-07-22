@@ -1,0 +1,17 @@
+generated: '2026-07-22'
+method: searched
+source: https://status.tiingo.com/ + https://www.tiingo.com/documentation/appendix/changelog
+status_page: https://status.tiingo.com/
+versioning:
+  scheme: none
+  notes: Endpoints are unversioned (no /v1 path segment); changes are announced on the dated documentation changelog.
+change_log: https://www.tiingo.com/documentation/appendix/changelog
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or Sunset/Deprecation header support found; breaking changes are flagged
+    in the changelog (e.g. IEX market data policy changes effective 2025-02-01).
+sla:
+  url: null
+  notes: No public SLA found; uptime is reported on status.tiingo.com.
+deprecated_operations: []

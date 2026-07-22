@@ -1,0 +1,134 @@
+generated: '2026-07-22'
+method: derived
+status: candidate
+source: openapi/tiingo-openapi.yml
+notes: 'Tiingo publishes no official MCP server (no mcp.tiingo.com; nothing first-party in the official MCP registry).
+  Third-party community servers exist: io.github.pipeworx-io/tiingo in the official registry (remote https://gateway.pipeworx.io/tiingo/mcp
+  - its live tools/list exposes Pipeworx''s generic ask_pipeworx router tools rather than Tiingo-native tools) and
+  matteoantoci/mcp-tiingo on npm (@iflow-mcp/matteoantoci-mcp-tiingo). The tool list below is a candidate surface
+  derived from Tiingo''s documented REST operations.'
+third_party_servers:
+- name: io.github.pipeworx-io/tiingo
+  registry: https://registry.modelcontextprotocol.io
+  remote: https://gateway.pipeworx.io/tiingo/mcp
+  transport: streamable-http
+  official: false
+- name: '@iflow-mcp/matteoantoci-mcp-tiingo'
+  registry: npm
+  official: false
+server:
+  name: tiingo
+  transport: http
+  url: null
+tools:
+- name: get_daily_meta
+  description: Get end-of-day metadata for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getDailyMeta
+- name: get_daily_prices
+  description: Get end-of-day price history for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getDailyPrices
+- name: get_distribution_yield
+  description: Get trailing distribution yield for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getDistributionYield
+- name: get_ticker_distributions
+  description: Get dividend distributions for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getTickerDistributions
+- name: get_bulk_distributions
+  description: Get dividend distributions across all tickers for an ex-date
+  source_operation: openapi/tiingo-openapi.yml#getBulkDistributions
+- name: get_ticker_splits
+  description: Get split corporate actions for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getTickerSplits
+- name: get_bulk_splits
+  description: Get split corporate actions across all tickers for an ex-date
+  source_operation: openapi/tiingo-openapi.yml#getBulkSplits
+- name: list_news
+  description: Get curated financial news articles
+  source_operation: openapi/tiingo-openapi.yml#listNews
+- name: list_news_bulk_files
+  description: List available bulk news download files
+  source_operation: openapi/tiingo-openapi.yml#listNewsBulkFiles
+- name: download_news_bulk_file
+  description: Download a bulk news batch file
+  source_operation: openapi/tiingo-openapi.yml#downloadNewsBulkFile
+- name: list_crypto_meta
+  description: Get metadata for crypto tickers
+  source_operation: openapi/tiingo-openapi.yml#listCryptoMeta
+- name: get_crypto_top_of_book
+  description: Get top-of-book quotes for crypto tickers
+  source_operation: openapi/tiingo-openapi.yml#getCryptoTopOfBook
+- name: get_crypto_prices
+  description: Get historical crypto price data
+  source_operation: openapi/tiingo-openapi.yml#getCryptoPrices
+- name: list_crypto_yield_platforms
+  description: List crypto yield platforms
+  source_operation: openapi/tiingo-openapi.yml#listCryptoYieldPlatforms
+- name: list_crypto_yield_pools
+  description: List crypto yield pools
+  source_operation: openapi/tiingo-openapi.yml#listCryptoYieldPools
+- name: get_crypto_yield_ticks
+  description: Get latest crypto yield metric ticks
+  source_operation: openapi/tiingo-openapi.yml#getCryptoYieldTicks
+- name: get_crypto_yield_metrics
+  description: Get historical yield metrics for a pool
+  source_operation: openapi/tiingo-openapi.yml#getCryptoYieldMetrics
+- name: get_iex_top_of_book
+  description: Get IEX top-of-book and last-sale quotes
+  source_operation: openapi/tiingo-openapi.yml#getIexTopOfBook
+- name: get_iex_historical_prices
+  description: Get IEX historical intraday prices for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getIexHistoricalPrices
+- name: get_boats_top_of_book
+  description: Get BOATS overnight top-of-book and last-sale quotes (beta)
+  source_operation: openapi/tiingo-openapi.yml#getBoatsTopOfBook
+- name: get_boats_historical_prices
+  description: Get BOATS overnight historical intraday prices for a ticker (beta)
+  source_operation: openapi/tiingo-openapi.yml#getBoatsHistoricalPrices
+- name: get_equity_realtime_top_of_book
+  description: Get consolidated equity realtime top-of-book snapshot (beta)
+  source_operation: openapi/tiingo-openapi.yml#getEquityRealtimeTopOfBook
+- name: get_equity_realtime_historical_prices
+  description: Get consolidated equity realtime historical intraday prices (beta)
+  source_operation: openapi/tiingo-openapi.yml#getEquityRealtimeHistoricalPrices
+- name: get_small_x_meta
+  description: Get Small Exchange contract metadata
+  source_operation: openapi/tiingo-openapi.yml#getSmallXMeta
+- name: get_small_x_top_of_book
+  description: Get Small Exchange top-of-book quotes
+  source_operation: openapi/tiingo-openapi.yml#getSmallXTopOfBook
+- name: get_small_x_intraday_prices
+  description: Get Small Exchange intraday price history
+  source_operation: openapi/tiingo-openapi.yml#getSmallXIntradayPrices
+- name: get_small_x_eod_prices
+  description: Get Small Exchange end-of-day price history
+  source_operation: openapi/tiingo-openapi.yml#getSmallXEodPrices
+- name: get_forex_top_of_book
+  description: Get forex top-of-book quotes
+  source_operation: openapi/tiingo-openapi.yml#getForexTopOfBook
+- name: get_forex_prices
+  description: Get historical forex rates for a currency pair
+  source_operation: openapi/tiingo-openapi.yml#getForexPrices
+- name: get_fundamentals_definitions
+  description: Get definitions of available fundamentals fields
+  source_operation: openapi/tiingo-openapi.yml#getFundamentalsDefinitions
+- name: get_fundamentals_meta
+  description: Get fundamentals metadata for tickers
+  source_operation: openapi/tiingo-openapi.yml#getFundamentalsMeta
+- name: get_fundamentals_statements
+  description: Get financial statement history for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getFundamentalsStatements
+- name: get_fundamentals_daily
+  description: Get daily fundamentals metrics for a ticker
+  source_operation: openapi/tiingo-openapi.yml#getFundamentalsDaily
+- name: get_fund_fees
+  description: Get latest mutual fund / ETF fee data for a fund
+  source_operation: openapi/tiingo-openapi.yml#getFundFees
+- name: get_fund_fee_metrics
+  description: Get historical fee metrics for a fund
+  source_operation: openapi/tiingo-openapi.yml#getFundFeeMetrics
+- name: search_assets
+  description: Search for assets by ticker or name
+  source_operation: openapi/tiingo-openapi.yml#searchAssets
+- name: test_connection
+  description: Test API connectivity and authentication
+  source_operation: openapi/tiingo-openapi.yml#testConnection
