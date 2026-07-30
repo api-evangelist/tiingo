@@ -177,6 +177,8 @@ apis:
       - News-based trading signals
       - Compliance / surveillance
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/tiingo/overview
   - type: AgenticAccess
     url: agentic-access/tiingo-agentic-access.yml
   - type: DomainSecurity
