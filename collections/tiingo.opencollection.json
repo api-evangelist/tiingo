@@ -1,0 +1,1184 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tiingo API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "End-of-Day",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get end-of-day metadata for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/daily/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              }
+            ]
+          },
+          "docs": "Get end-of-day metadata for a ticker"
+        },
+        {
+          "info": {
+            "name": "Get end-of-day price history for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/daily/:ticker/prices",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "Allows resampled values that allow you to choose the values returned as daily, weekly, monthly, or annually values. Note: ONLY DAILY takes into account holidays. All others use standard business days Acceptable values: daily : Values returned as daily periods, with a holiday calendar. weekly : Values returned as weekly data, with days ending on Friday. monthly : Values returned as monthly data, with days ending on the last standard business day (Mon-Fri) of each month. annually : Values returned as annual data, with days ending on the last standard business day (Mon-Fri) of each year. Note, that if you choose a value in-between the resample period for weekly, monthly, and daily, the start date rolls back to consider the entire period. For example, if you choose to resample weekly, but your \"startDate\" parameter is set to Wednesday of that week, the startDate will be adjusted to Monday, so the entire week is captured. Another example is if you send a startDate mid-month, we roll back the startDate to the beginning of the month. Similarly, if you provide an endDate, and it's midway through the period, we roll-forward the date to capture the whole period. In the above example, if the end date is set to a wednesday with a weekly resample, the end date is rolled forward to the Friday of that week."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "This field allows you to specify the sort direct and which column to sort by. Prepend \"-\" if you want descending order, otherwise it will be ascending. E.g. sort=date will sort by date in ascending order. sort=-date will sort by date in descending order."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Supports \"json\" (default) and \"csv\". CSV is a bare-bones return type that is often 4-5x faster than JSON."
+              }
+            ]
+          },
+          "docs": "Get end-of-day price history for a ticker"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Corporate Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get trailing distribution yield for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/corporate-actions/:ticker/distribution-yield",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset you would like yield data for."
+              }
+            ]
+          },
+          "docs": "Get trailing distribution yield for a ticker"
+        },
+        {
+          "info": {
+            "name": "Get dividend distributions for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/corporate-actions/:ticker/distributions",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset you would like distribution data for."
+              },
+              {
+                "name": "startExDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits distributions that have an ex-date >= on the date passed. Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endExDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits distributions that have an ex-date <= on the date passed. Parameter must be in YYYY-MM-DD format."
+              }
+            ]
+          },
+          "docs": "Get dividend distributions for a ticker"
+        },
+        {
+          "info": {
+            "name": "Get dividend distributions across all tickers for an ex-date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/corporate-actions/distributions",
+            "params": [
+              {
+                "name": "exDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits distributions that have an ex-date on the date passed. Parameter must be in YYYY-MM-DD format."
+              }
+            ]
+          },
+          "docs": "Get dividend distributions across all tickers for an ex-date"
+        },
+        {
+          "info": {
+            "name": "Get split corporate actions for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/corporate-actions/:ticker/splits",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset you would like distribution data for."
+              },
+              {
+                "name": "startExDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits distributions that have an ex-date >= on the date passed. Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endExDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits distributions that have an ex-date <= on the date passed. Parameter must be in YYYY-MM-DD format."
+              }
+            ]
+          },
+          "docs": "Get split corporate actions for a ticker"
+        },
+        {
+          "info": {
+            "name": "Get split corporate actions across all tickers for an ex-date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/corporate-actions/splits",
+            "params": [
+              {
+                "name": "exDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits distributions that have an ex-date on the date passed. Parameter must be in YYYY-MM-DD format."
+              }
+            ]
+          },
+          "docs": "Get split corporate actions across all tickers for an ex-date"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get curated financial news articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/news",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of the tickers requested. When passing via GET parameter (not in URL), use a JSON array, otherwise use a comma-separated list. #Use the below format if querying directly in the URL https://api.tiingo.com/tiingo/news?tickers=aapl,googl #Otherwise, if passing GET parameters via a request library, use a JSON array like this: tickers : ['aapl','googl']"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of the tags requested. When passing via GET parameter (not in URL), use a JSON array, otherwise use a comma-separated list. #Use the below format if querying directly in the URL https://api.tiingo.com/tiingo/news?source=bloomberg.com,reuters.com #Otherwise, if passing GET parameters via a request library, use a JSON array like this: source : ['bloomberg.com','reuters.com']"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits news stories to on or later than the publishedDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits news stories to on or less than the publishedDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of news objects to return in the array. The default is 100 and the max is 1000. This is maxed to 1,000 as any more than that tends to lead to longer wait times. If you would like this adjusted, please contact us at support@tiingo.com ."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "This is a \"pagination\" variable that is often used alongside limit. It returns an array with the results shifted by \"offset\". For example, when limit is 0 you may get the following: 0. News Story A 1. News Story B 2. News Story C 3. News Story D When offset is \"2\" you will receive: 0. News Story C 1. News Story D 2. News Story E 3. News Story F This, when used alongside \"limit\" allows for pagination and more efficient queries."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The field can take either \"publishedDate\" or \"crawlDate\". The date field specified will be used to sort the results in descending order. The results can either be sorted by when the news outlet reported the publish time (\"datePublished\") or when our feeds came across is (\"crawlDate\"). Defaults to \"publishedDate\" if no value provided"
+              }
+            ]
+          },
+          "docs": "Get curated financial news articles"
+        },
+        {
+          "info": {
+            "name": "List available bulk news download files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/news/bulk_download"
+          },
+          "docs": "List available bulk news download files"
+        },
+        {
+          "info": {
+            "name": "Download a bulk news batch file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/news/bulk_download/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique \"id\" that corresponds to the batch file you would like to download. If none is supplied, returns a list of the available batch files."
+              }
+            ]
+          },
+          "docs": "Download a bulk news batch file"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crypto",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get metadata for crypto tickers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/crypto",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "The ticker(s) associated with the crypto pair(s). Can either be a single string or an array of strings (string[]). Please note: no more than 100 tickers may be requested at this time. If no ticker(s) are passed, returns data for all supported crypto pairs."
+              }
+            ]
+          },
+          "docs": "Get metadata for crypto tickers"
+        },
+        {
+          "info": {
+            "name": "Get top-of-book quotes for crypto tickers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/crypto/top",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "The ticker(s) associated with the crypto pair(s). Can either be a single string or an array of strings (string[]). Please note: no more than 100 tickers may be requested at this time."
+              },
+              {
+                "name": "exchanges",
+                "value": "",
+                "type": "query",
+                "description": "If you would like to limit the query to a subset of exchanes, pass a comma-separated list of exchanged to select. E.g. \"POLONIEX, GDAX\"."
+              },
+              {
+                "name": "includeRawExchangeData",
+                "value": "",
+                "type": "query",
+                "description": "If True, the endpoint will return all of the underlying exchange data used in the calculation. If this is set to true, there will be a new field called exchangeData for each crypto. This will contain the exchange-level OHLC for each asset."
+              }
+            ]
+          },
+          "docs": "Get top-of-book quotes for crypto tickers"
+        },
+        {
+          "info": {
+            "name": "Get historical crypto price data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/crypto/prices",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "The ticker(s) associated with the crypto pair(s). Can either be a single string or an array of strings (string[]). Please note: no more than 100 tickers may be requested at this time."
+              },
+              {
+                "name": "exchanges",
+                "value": "",
+                "type": "query",
+                "description": "If you would like to limit the query to a subset of exchanes, pass a comma-separated list of exchanged to select. E.g. \"POLONIEX, GDAX\"."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or later than the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "f startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or less than the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "This allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Units in minutes (min), hours (hour), and days (day) are accepted. Format is # + (min/hour/dau); e.g. \"15min\", \"4hour\" or \"1day\". If no value is provided, defaults to 5min."
+              }
+            ]
+          },
+          "docs": "Get historical crypto price data"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crypto Yield",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List crypto yield platforms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/crypto-yield/platforms",
+            "params": [
+              {
+                "name": "platformCodes",
+                "value": "",
+                "type": "query",
+                "description": "A list of platform codes to constrain the output to the given platforms. If passing it as a string in the URL, it can be a comma-separated list."
+              }
+            ]
+          },
+          "docs": "List crypto yield platforms"
+        },
+        {
+          "info": {
+            "name": "List crypto yield pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/crypto-yield/pools",
+            "params": [
+              {
+                "name": "poolCodes",
+                "value": "",
+                "type": "query",
+                "description": "The pool code(s) associated with the Yield Pool. Can either be a single string or an array of strings (string[]). If no pool code(s) are passed, returns data for all supported yield pools."
+              },
+              {
+                "name": "platformCodes",
+                "value": "",
+                "type": "query",
+                "description": "The platform code(s) associated with the Yield Pools that you would like to constrain the output by. Can either be a single string or an array of strings (string[]). If no platform code(s) are passed, returns data for all supported yield pools for all platforms."
+              }
+            ]
+          },
+          "docs": "List crypto yield pools"
+        },
+        {
+          "info": {
+            "name": "Get latest crypto yield metric ticks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/crypto-yield/ticks",
+            "params": [
+              {
+                "name": "poolCodes",
+                "value": "",
+                "type": "query",
+                "description": "The pool code(s) associated with the Yield Pool. Can either be a single string or an array of strings (string[]). If no pool code(s) are passed, returns data for all supported yield pools."
+              },
+              {
+                "name": "platformCodes",
+                "value": "",
+                "type": "query",
+                "description": "The platform code(s) associated with the Yield Pools that you would like to constrain the output by. Can either be a single string or an array of strings (string[]). If no platform code(s) are passed, returns data for all supported yield pools for all platforms."
+              }
+            ]
+          },
+          "docs": "Get latest crypto yield metric ticks"
+        },
+        {
+          "info": {
+            "name": "Get historical yield metrics for a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/crypto-yield/:poolCode/metrics",
+            "params": [
+              {
+                "name": "poolCode",
+                "value": "",
+                "type": "path",
+                "description": "The pool code associated with the yield pool. Must be a single pool code."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or later than the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "f startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or less than the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "This allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Units in minutes (min), hours (hour), and days (day) are accepted. Format is # + (min/hour/dau); e.g. \"15min\", \"4hour\" or \"1day\". If no value is provided, defaults to 5min."
+              }
+            ]
+          },
+          "docs": "Get historical yield metrics for a pool"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "IEX",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get IEX top-of-book and last-sale quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/iex",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Ticker related to the asset."
+              }
+            ]
+          },
+          "docs": "Get IEX top-of-book and last-sale quotes"
+        },
+        {
+          "info": {
+            "name": "Get IEX historical intraday prices for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/iex/:ticker/prices",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "his allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Both units in minutes (min) and hours (hour) are accepted. Format is # + (min/hour); e.g. \"15min\" or \"4hour\". If no value is provided, defaults to 5min."
+              },
+              {
+                "name": "afterHours",
+                "value": "",
+                "type": "query",
+                "description": "If set to true, includes pre and post market data if available."
+              },
+              {
+                "name": "forceFill",
+                "value": "",
+                "type": "query",
+                "description": "Some tickers do not have a trade/quote update for a given time period. if forceFill is set to true, then the previous OHLC will be used to fill the current OHLC."
+              }
+            ]
+          },
+          "docs": "Get IEX historical intraday prices for a ticker"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "BOATS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get BOATS overnight top-of-book and last-sale quotes (beta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/boats",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Ticker related to the asset. Pass a comma-separated list for multiple tickers (for example aapl,spy)."
+              }
+            ]
+          },
+          "docs": "Get BOATS overnight top-of-book and last-sale quotes (beta)"
+        },
+        {
+          "info": {
+            "name": "Get BOATS overnight historical intraday prices for a ticker (beta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/boats/:ticker/prices",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format. When both dates are omitted, Tiingo returns the latest overnight BOATS session window (8:00 PM-3:59 AM ET)."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format. Date-only endDate values are normalized to the BOATS overnight session end (3:59 AM ET)."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "This allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Both units in minutes (min) and hours (hour) are accepted. Format is # + (min/hour); e.g. \"15min\" or \"4hour\". If no value is provided, defaults to 5min."
+              },
+              {
+                "name": "afterHours",
+                "value": "",
+                "type": "query",
+                "description": "Accepted for request compatibility with other equity intraday endpoints, but it does not widen the BOATS historical window. BOATS history is limited to the overnight session (8:00 PM-3:59 AM ET) regardless of this flag."
+              },
+              {
+                "name": "forceFill",
+                "value": "",
+                "type": "query",
+                "description": "Some tickers do not have a trade/quote update for a given time period. if forceFill is set to true, then the previous OHLC will be used to fill the current OHLC."
+              }
+            ]
+          },
+          "docs": "Get BOATS overnight historical intraday prices for a ticker (beta)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Equity Realtime",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get consolidated equity realtime top-of-book snapshot (beta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/equity/intraday",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Ticker related to the asset."
+              }
+            ]
+          },
+          "docs": "Get consolidated equity realtime top-of-book snapshot (beta)"
+        },
+        {
+          "info": {
+            "name": "Get consolidated equity realtime historical intraday prices (beta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/equity/intraday/:ticker/prices",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "This allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Both units in minutes (min) and hours (hour) are accepted. Format is # + (min/hour); e.g. \"15min\" or \"4hour\". If no value is provided, defaults to 5min."
+              },
+              {
+                "name": "afterHours",
+                "value": "",
+                "type": "query",
+                "description": "If set to true, includes pre and post market data if available."
+              },
+              {
+                "name": "forceFill",
+                "value": "",
+                "type": "query",
+                "description": "Some tickers do not have a trade/quote update for a given time period. if forceFill is set to true, then the previous OHLC will be used to fill the current OHLC."
+              }
+            ]
+          },
+          "docs": "Get consolidated equity realtime historical intraday prices (beta)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Small Exchange",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Small Exchange contract metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/smallx/meta",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Specific tickers to return meta data for. If no string passed, will return meta data for all available tickers. Can either be a single ticker, a comma-separated list of tickers, or an array of strings (string[])."
+              }
+            ]
+          },
+          "docs": "Get Small Exchange contract metadata"
+        },
+        {
+          "info": {
+            "name": "Get Small Exchange top-of-book quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/smallx/tops",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Ticker related to the asset."
+              }
+            ]
+          },
+          "docs": "Get Small Exchange top-of-book quotes"
+        },
+        {
+          "info": {
+            "name": "Get Small Exchange intraday price history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/smallx/:ticker/prices",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "his allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Both units in minutes (min) and hours (hour) are accepted. Format is # + (min/hour); e.g. \"15min\" or \"4hour\". If no value is provided, defaults to 5min."
+              }
+            ]
+          },
+          "docs": "Get Small Exchange intraday price history"
+        },
+        {
+          "info": {
+            "name": "Get Small Exchange end-of-day price history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/smallx/:ticker/eod",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "Allows resampled values that allow you to choose the values returned as daily, weekly, monthly, or annually values. Note: ONLY DAILY takes into account holidays. All others use standard business days Acceptable values: daily : Values returned as daily periods, with a holiday calendar. weekly : Values returned as weekly data, with days ending on Friday. monthly : Values returned as monthly data, with days ending on the last standard business day (Mon-Fri) of each month. annually : Values returned as annual data, with days ending on the last standard business day (Mon-Fri) of each year. Note, that if you choose a value in-between the resample period for weekly, monthly, and daily, the start date rolls back to consider the entire period. For example, if you choose to resample weekly, but your \"startDate\" parameter is set to Wednesday of that week, the startDate will be adjusted to Monday, so the entire week is captured. Another example is if you send a startDate mid-month, we roll back the startDate to the beginning of the month. Similarly, if you provide an endDate, and it's midway through the period, we roll-forward the date to capture the whole period. In the above example, if the end date is set to a wednesday with a weekly resample, the end date is rolled forward to the Friday of that week."
+              }
+            ]
+          },
+          "docs": "Get Small Exchange end-of-day price history"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Forex",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get forex top-of-book quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/fx/top",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Ticker related to the asset."
+              }
+            ]
+          },
+          "docs": "Get forex top-of-book quotes"
+        },
+        {
+          "info": {
+            "name": "Get historical forex rates for a currency pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/fx/:ticker/prices",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "his allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Both units in minutes (min) and hours (hour) are accepted. Format is # + (min/hour); e.g. \"15min\" or \"4hour\". If no value is provided, defaults to 5min."
+              }
+            ]
+          },
+          "docs": "Get historical forex rates for a currency pair"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fundamentals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get definitions of available fundamentals fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/fundamentals/definitions"
+          },
+          "docs": "Get definitions of available fundamentals fields"
+        },
+        {
+          "info": {
+            "name": "Get fundamentals metadata for tickers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/fundamentals/meta",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Specific tickers to return meta data for. If no string passed, will return meta data for all available tickers. Can either be a single ticker, a comma-separated list of tickers, or an array of strings (string[])."
+              }
+            ]
+          },
+          "docs": "Get fundamentals metadata for tickers"
+        },
+        {
+          "info": {
+            "name": "Get financial statement history for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/fundamentals/:ticker/statements",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Required. Use the ticker for active symbols, or Tiingo PermaTicker (stable identifier) for delisted/recycled symbols."
+              },
+              {
+                "name": "asReported",
+                "value": "",
+                "type": "query",
+                "description": "When false (default), the endpoint will return the most recent data, including any revisions for the reporting period. The dates will correspond to the fiscal end of the quarter or year. When true, the endpoint will return the data as it was reported on the release date. Similarly, the date will correspond to the date the filings were posted on the SEC."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "This field allows you to specify the sort direct and which column to sort by. Prepend \"-\" if you want descending order, otherwise it will be ascending. E.g. sort=date will sort by date in ascending order. sort=-date will sort by date in descending order. NOTE: For Fundamentals statement only the \"date\" field may be sorted upon"
+              }
+            ]
+          },
+          "docs": "Get financial statement history for a ticker"
+        },
+        {
+          "info": {
+            "name": "Get daily fundamentals metrics for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/fundamentals/:ticker/daily",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Required. Use the ticker for active symbols, or Tiingo PermaTicker (stable identifier) for delisted/recycled symbols."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "This field allows you to specify the sort direct and which column to sort by. Prepend \"-\" if you want descending order, otherwise it will be ascending. E.g. sort=date will sort by date in ascending order. sort=-date will sort by date in descending order."
+              }
+            ]
+          },
+          "docs": "Get daily fundamentals metrics for a ticker"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fund Fees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get latest mutual fund / ETF fee data for a fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/funds/:ticker",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Ticker related to the fund."
+              },
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get latest mutual fund / ETF fee data for a fund"
+        },
+        {
+          "info": {
+            "name": "Get historical fee metrics for a fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/funds/:ticker/metrics",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker related to the asset."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or after the startDate (>=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "If startDate or endDate is not null, historical data will be queried. This filter limits metrics to on or before the endDate (<=). Parameter must be in YYYY-MM-DD format."
+              },
+              {
+                "name": "resampleFreq",
+                "value": "",
+                "type": "query",
+                "description": "his allows you to set the frequency in which you want data resampled. For example \"1hour\" would return the data where OHLC is calculated on an hourly schedule. The minimum value is \"1min\". Both units in minutes (min) and hours (hour) are accepted. Format is # + (min/hour); e.g. \"15min\" or \"4hour\". If no value is provided, defaults to 5min."
+              }
+            ]
+          },
+          "docs": "Get historical fee metrics for a fund"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Utilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for assets by ticker or name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/tiingo/utilities/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The search query to use to look up assets."
+              },
+              {
+                "name": "exactTickerMatch",
+                "value": "",
+                "type": "query",
+                "description": "True to only include exact ticker matches based on the search query. If set to true, no partial matches will be included and asset names will not be searched."
+              },
+              {
+                "name": "includeDelisted",
+                "value": "",
+                "type": "query",
+                "description": "True to include delisted tickers and false (default) to exclude delisted tickers."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of assets to return. Defaults to 10 and can be set to a maximum of 100."
+              }
+            ]
+          },
+          "docs": "Search for assets by ticker or name"
+        },
+        {
+          "info": {
+            "name": "Test API connectivity and authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tiingo.com/api/test"
+          },
+          "docs": "Test API connectivity and authentication"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

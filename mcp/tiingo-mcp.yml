@@ -2,11 +2,11 @@ generated: '2026-07-22'
 method: derived
 status: candidate
 source: openapi/tiingo-openapi.yml
-notes: 'Tiingo publishes no official MCP server (no mcp.tiingo.com; nothing first-party in the official MCP registry).
-  Third-party community servers exist: io.github.pipeworx-io/tiingo in the official registry (remote https://gateway.pipeworx.io/tiingo/mcp
-  - its live tools/list exposes Pipeworx''s generic ask_pipeworx router tools rather than Tiingo-native tools) and
-  matteoantoci/mcp-tiingo on npm (@iflow-mcp/matteoantoci-mcp-tiingo). The tool list below is a candidate surface
-  derived from Tiingo''s documented REST operations.'
+notes: 'Tiingo publishes no official MCP server (no mcp.tiingo.com; nothing first-party in the official
+  MCP registry). Third-party community servers exist: io.github.pipeworx-io/tiingo in the official registry
+  (remote https://gateway.pipeworx.io/tiingo/mcp - its live tools/list exposes Pipeworx''s generic ask_pipeworx
+  router tools rather than Tiingo-native tools) and matteoantoci/mcp-tiingo on npm (@iflow-mcp/matteoantoci-mcp-tiingo).
+  The tool list below is a candidate surface derived from Tiingo''s documented REST operations.'
 third_party_servers:
 - name: io.github.pipeworx-io/tiingo
   registry: https://registry.modelcontextprotocol.io
@@ -132,3 +132,9 @@ tools:
 - name: test_connection
   description: Test API connectivity and authentication
   source_operation: openapi/tiingo-openapi.yml#testConnection
+deployment:
+  mode: none
+  verified: derived
+  tools: 37
+  checked: '2026-08-12'
+  source: catalog MCP census
