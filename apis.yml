@@ -33,165 +33,318 @@ description: >-
   IEX intraday data, Crypto, Forex, Fundamentals, and News, with REST and WebSocket access at
   api.tiingo.com.
 apis:
-  - aid: tiingo:end-of-day-api
-    name: Tiingo End-of-Day API
-    tags:
-      - Stocks
-      - End of Day
-      - Historical
-      - OHLCV
-    tags_raw:
-      - Stocks
-      - End-of-Day
-      - Historical
-      - OHLCV
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.tiingo.com/tiingo/daily
-    humanURL: https://www.tiingo.com/documentation/end-of-day
-    description: Daily OHLCV history for 100,000+ US equities and ETFs back to 1962, with split and dividend adjustments.
-    properties:
-      - type: Documentation
-        url: https://www.tiingo.com/documentation/end-of-day
-      - type: OpenAPI
-        url: openapi/tiingo-openapi.yml
-    x-features:
-      - 100,000+ US tickers
-      - History back to 1962
-      - Split- and dividend-adjusted
-    x-use-cases:
-      - Long-history backtests
-      - Tax-lot reconciliation against historical closes
-  - aid: tiingo:iex-intraday-api
-    name: Tiingo IEX Intraday API
-    tags:
-      - Stocks
-      - Intraday
-      - Real-Time
-      - IEX
-      - WebSocket
-    tags_raw:
-      - Stocks
-      - Intraday
-      - Real-time
-      - IEX
-      - WebSocket
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.tiingo.com/iex
-    humanURL: https://www.tiingo.com/documentation/iex
-    description: IEX-sourced intraday quotes and trades over REST and WebSocket - real-time during US market hours.
-    properties:
-      - type: Documentation
-        url: https://www.tiingo.com/documentation/iex
-      - type: OpenAPI
-        url: openapi/tiingo-openapi.yml
-      - type: AsyncAPI
-        url: asyncapi/tiingo-websockets-asyncapi.yml
-    x-features:
-      - IEX top-of-book in real time
-      - WebSocket streaming
-      - Aggregated minute bars
-    x-use-cases:
-      - Live trading dashboards
-      - Real-time quote streaming
-  - aid: tiingo:crypto-api
-    name: Tiingo Crypto API
-    tags:
-      - Crypto
-      - Cryptocurrency
-      - Market Data
-      - WebSocket
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.tiingo.com/tiingo/crypto
-    humanURL: https://www.tiingo.com/documentation/crypto
-    description: Crypto top-of-book and trade data aggregated from major exchanges over REST and WebSocket.
-    properties:
-      - type: Documentation
-        url: https://www.tiingo.com/documentation/crypto
-      - type: OpenAPI
-        url: openapi/tiingo-openapi.yml
-      - type: AsyncAPI
-        url: asyncapi/tiingo-websockets-asyncapi.yml
-    x-features:
-      - Cross-exchange aggregated quotes
-      - WebSocket streaming
-      - Historical OHLCV
-    x-use-cases:
-      - Crypto research
-      - Cross-exchange arbitrage analysis
-  - aid: tiingo:forex-api
-    name: Tiingo Forex API
-    tags:
-      - Forex
-      - FX
-      - Currency
-      - WebSocket
-    tags_raw:
-      - Forex
-      - FX
-      - Currencies
-      - WebSocket
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.tiingo.com/tiingo/fx
-    humanURL: https://www.tiingo.com/documentation/forex
-    description: Real-time and historical FX rates for major and emerging-market currency pairs.
-    properties:
-      - type: Documentation
-        url: https://www.tiingo.com/documentation/forex
-      - type: OpenAPI
-        url: openapi/tiingo-openapi.yml
-      - type: AsyncAPI
-        url: asyncapi/tiingo-websockets-asyncapi.yml
-    x-features:
-      - Major and emerging-market pairs
-      - Historical and real-time
-      - WebSocket streaming
-    x-use-cases:
-      - Multi-currency reporting
-      - FX strategy backtests
-  - aid: tiingo:fundamentals-api
-    name: Tiingo Fundamentals API
-    tags:
-      - Fundamentals
-      - Financial Statements
-      - Equity Research
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.tiingo.com/tiingo/fundamentals
-    humanURL: https://www.tiingo.com/documentation/fundamentals
-    description: Income statement, balance sheet, cash flow, and corporate event data sourced from SEC filings.
-    properties:
-      - type: Documentation
-        url: https://www.tiingo.com/documentation/fundamentals
-      - type: OpenAPI
-        url: openapi/tiingo-openapi.yml
-    x-features:
-      - SEC-sourced financials
-      - Quarterly and annual periods
-      - 30+ years of fundamentals (paid tier)
-    x-use-cases:
-      - Equity research
-      - Factor model construction
-  - aid: tiingo:news-api
-    name: Tiingo News API
-    tags:
-      - News
-      - Sentiment
-      - Equity Research
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.tiingo.com/tiingo/news
-    humanURL: https://www.tiingo.com/documentation/news
-    description: Tagged equity news from 1,000+ publishers with ticker, topic, and source filters.
-    properties:
-      - type: Documentation
-        url: https://www.tiingo.com/documentation/news
-      - type: OpenAPI
-        url: openapi/tiingo-openapi.yml
-    x-features:
-      - Ticker- and topic-tagged feed
-      - 1,000+ publishers
-      - Historical archive
-    x-use-cases:
-      - News-based trading signals
-      - Compliance / surveillance
+- aid: tiingo:tiingo-boats-api
+  name: Tiingo BOATS API
+  description: The BOATS API from Tiingo — 2 operation(s) for boats.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - BOATS
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-boats-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-corporate-actions-api
+  name: Tiingo Corporate Actions API
+  description: The Corporate Actions API from Tiingo — 5 operation(s) for corporate actions.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Corporate Actions
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-corporate-actions-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-crypto-api
+  name: Tiingo Crypto API
+  description: The Crypto API from Tiingo — 3 operation(s) for crypto.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Crypto
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-crypto-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-crypto-yield-api
+  name: Tiingo Crypto Yield API
+  description: The Crypto Yield API from Tiingo — 4 operation(s) for crypto yield.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Crypto Yield
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-crypto-yield-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-end-of-day-api
+  name: Tiingo End Of Day API
+  description: The End-of-Day API from Tiingo — 2 operation(s) for end-of-day.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - End-of-Day
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-end-of-day-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-equity-realtime-api
+  name: Tiingo Equity Realtime API
+  description: The Equity Realtime API from Tiingo — 2 operation(s) for equity realtime.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Equity Realtime
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-equity-realtime-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-forex-api
+  name: Tiingo Forex API
+  description: The Forex API from Tiingo — 2 operation(s) for forex.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Forex
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-forex-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-fund-fees-api
+  name: Tiingo Fund Fees API
+  description: The Fund Fees API from Tiingo — 2 operation(s) for fund fees.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Fund Fees
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-fund-fees-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-fundamentals-api
+  name: Tiingo Fundamentals API
+  description: The Fundamentals API from Tiingo — 4 operation(s) for fundamentals.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Fundamentals
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-fundamentals-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-iex-api
+  name: Tiingo IEX API
+  description: The IEX API from Tiingo — 2 operation(s) for iex.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - IEX
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-iex-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-news-api
+  name: Tiingo News API
+  description: The News API from Tiingo — 3 operation(s) for news.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-news-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-small-exchange-api
+  name: Tiingo Small Exchange API
+  description: The Small Exchange API from Tiingo — 4 operation(s) for small exchange.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Small Exchange
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-small-exchange-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
+- aid: tiingo:tiingo-utilities-api
+  name: Tiingo Utilities API
+  description: The Utilities API from Tiingo — 2 operation(s) for utilities.
+  humanURL: https://www.tiingo.com/documentation/end-of-day
+  baseURL: https://api.tiingo.com/tiingo/daily
+  tags:
+  - Utilities
+  properties:
+  - type: OpenAPI
+    url: openapi/tiingo-utilities-api-openapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/end-of-day
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/iex
+  - type: AsyncAPI
+    url: asyncapi/tiingo-websockets-asyncapi.yml
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/crypto
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/forex
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/fundamentals
+  - type: Documentation
+    url: https://www.tiingo.com/documentation/news
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/tiingo/overview
