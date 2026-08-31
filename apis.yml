@@ -147,6 +147,8 @@ apis:
   humanURL: https://www.tiingo.com/documentation/end-of-day
   baseURL: https://api.tiingo.com/tiingo/daily
   tags:
+  - End of Day
+  tags_raw:
   - End-of-Day
   properties:
   - type: OpenAPI
