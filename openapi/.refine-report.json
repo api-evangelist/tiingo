@@ -1,0 +1,44 @@
+{
+  "provider": "tiingo",
+  "sources": [
+    "_original/tiingo-openapi.yml"
+  ],
+  "outputs": [
+    "tiingo-boats-api-openapi.yml",
+    "tiingo-corporate-actions-api-openapi.yml",
+    "tiingo-crypto-api-openapi.yml",
+    "tiingo-crypto-yield-api-openapi.yml",
+    "tiingo-end-of-day-api-openapi.yml",
+    "tiingo-equity-realtime-api-openapi.yml",
+    "tiingo-forex-api-openapi.yml",
+    "tiingo-fund-fees-api-openapi.yml",
+    "tiingo-fundamentals-api-openapi.yml",
+    "tiingo-iex-api-openapi.yml",
+    "tiingo-news-api-openapi.yml",
+    "tiingo-small-exchange-api-openapi.yml",
+    "tiingo-utilities-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "tiingo-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "tiingo-boats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-corporate-actions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-crypto-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-crypto-yield-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-end-of-day-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-equity-realtime-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-forex-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-fund-fees-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-fundamentals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-iex-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-news-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-small-exchange-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tiingo-utilities-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
