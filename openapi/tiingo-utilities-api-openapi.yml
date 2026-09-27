@@ -90,11 +90,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API token.
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   schemas:
     SearchResult:
       type: object
@@ -117,6 +112,11 @@ components:
         openFIGI:
           type: string
           description: Placeholder for an upcoming change to the Tiingo API that allows querying by the openFIGI ticker.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

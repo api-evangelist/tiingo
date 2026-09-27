@@ -109,11 +109,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  responses:
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
-    Unauthorized:
-      description: Missing or invalid API token.
   schemas:
     EquityRealtimePriceBar:
       type: object
@@ -183,6 +178,11 @@ components:
         lqAskSize:
           type: integer
           description: The ask size component of the liquidity risk metric in shares. Corresponds to lqAskSize in the thresholdLevel 4 websocket liquidity risk metric.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

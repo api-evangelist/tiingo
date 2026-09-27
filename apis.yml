@@ -36,6 +36,8 @@ tags:
   - News
   - Fundamentals
   - WebSocket
+  - Real-Time
+  - Financial Data
 tags_raw:
   - Fintech
   - Market Data
@@ -45,6 +47,8 @@ tags_raw:
   - News
   - Fundamentals
   - WebSockets
+  - Real-Time
+  - Financial Data
 created: '2026-05-08'
 modified: '2026-07-22'
 specificationVersion: '0.23'

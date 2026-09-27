@@ -110,11 +110,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API token.
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   schemas:
     DailyPriceBar:
       type: object
@@ -182,6 +177,11 @@ components:
           type: string
           format: date
           description: The latest date we have price data available for the asset. When null it means no price data available for the given asset.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

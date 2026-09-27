@@ -191,6 +191,11 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   schemas:
     Distribution:
       type: object
@@ -258,11 +263,6 @@ components:
         trailingDiv1Y:
           type: string
           description: The trailing distribution yield for the asset based on the previous 1 year of distributions.
-  responses:
-    Unauthorized:
-      description: Missing or invalid API token.
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   securitySchemes:
     apiTokenHeader:
       type: apiKey
