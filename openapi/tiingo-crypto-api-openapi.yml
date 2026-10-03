@@ -148,53 +148,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    CryptoPriceBar:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The datetime this data pertains to. It will be a timestamp dependent upon the resampleFreq parameter. For example, if resampleFreq=5min, it will be in 5 min increments.
-        open:
-          type: number
-          description: The opening price for the asset on the given date.
-        high:
-          type: number
-          description: The high price for the asset on the given date.
-        low:
-          type: number
-          description: The low price for the asset on the given date.
-        close:
-          type: number
-          description: The closing price for the asset on the given date.
-        tradesDone:
-          type: integer
-          description: The number of trades done on the given date.
-        volume:
-          type: number
-          description: The volume done for the asset on the specific date in the base currency.
-        volumeNotional:
-          type: number
-          description: 'The last size done for the asset on the specific date in the quote currency. The volume done for the asset on the specific date in the quote currency. In mathematical terms: volumeNotional = close * volume'
-    CryptoTopOfBook:
-      type: object
-      properties:
-        ticker:
-          type: string
-          description: Ticker related to the asset.
-        baseCurrency:
-          type: string
-          description: The base pair of the cryptocurrency, e.g. "btc" for "btcusd".
-        quoteCurrency:
-          type: string
-          description: The quote pair of the cryptocurrency, e.g. "usd" for "btcusd".
-        topOfBookData:
-          allOf:
-          - $ref: '#/components/schemas/CryptoTopOfBookData'
-          description: Stores the top-of-book data being returned. See the table below for the fields in this object.
-        exchangeData:
-          type: object
-          description: The underlying data for each exchange. This will only be returned if the includeRawExchangeData flag is set to "true".
     CryptoTopOfBookData:
       type: object
       properties:
@@ -236,24 +189,6 @@ components:
         askExchange:
           type: string
           description: The full name of the exchange the "askPrice" and "askSize" are located on.
-    CryptoMeta:
-      type: object
-      properties:
-        ticker:
-          type: string
-          description: Ticker related to the asset.
-        baseCurrency:
-          type: string
-          description: The base pair of the cryptocurrency, e.g. "btc" for "btcusd".
-        quoteCurrency:
-          type: string
-          description: The quote pair of the cryptocurrency, e.g. "usd" for "btcusd".
-        name:
-          type: string
-          description: Full-length name of the asset.
-        description:
-          type: string
-          description: Long-form descripton of the asset.
     CryptoPrices:
       type: object
       properties:
@@ -273,6 +208,71 @@ components:
         exchangeData:
           type: object
           description: The underlying data for each exchange. This will only be returned if the includeRawExchangeData flag is set to "true".
+    CryptoMeta:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Ticker related to the asset.
+        baseCurrency:
+          type: string
+          description: The base pair of the cryptocurrency, e.g. "btc" for "btcusd".
+        quoteCurrency:
+          type: string
+          description: The quote pair of the cryptocurrency, e.g. "usd" for "btcusd".
+        name:
+          type: string
+          description: Full-length name of the asset.
+        description:
+          type: string
+          description: Long-form descripton of the asset.
+    CryptoTopOfBook:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Ticker related to the asset.
+        baseCurrency:
+          type: string
+          description: The base pair of the cryptocurrency, e.g. "btc" for "btcusd".
+        quoteCurrency:
+          type: string
+          description: The quote pair of the cryptocurrency, e.g. "usd" for "btcusd".
+        topOfBookData:
+          allOf:
+          - $ref: '#/components/schemas/CryptoTopOfBookData'
+          description: Stores the top-of-book data being returned. See the table below for the fields in this object.
+        exchangeData:
+          type: object
+          description: The underlying data for each exchange. This will only be returned if the includeRawExchangeData flag is set to "true".
+    CryptoPriceBar:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: The datetime this data pertains to. It will be a timestamp dependent upon the resampleFreq parameter. For example, if resampleFreq=5min, it will be in 5 min increments.
+        open:
+          type: number
+          description: The opening price for the asset on the given date.
+        high:
+          type: number
+          description: The high price for the asset on the given date.
+        low:
+          type: number
+          description: The low price for the asset on the given date.
+        close:
+          type: number
+          description: The closing price for the asset on the given date.
+        tradesDone:
+          type: integer
+          description: The number of trades done on the given date.
+        volume:
+          type: number
+          description: The volume done for the asset on the specific date in the base currency.
+        volumeNotional:
+          type: number
+          description: 'The last size done for the asset on the specific date in the quote currency. The volume done for the asset on the specific date in the quote currency. In mathematical terms: volumeNotional = close * volume'
   responses:
     TooManyRequests:
       description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.

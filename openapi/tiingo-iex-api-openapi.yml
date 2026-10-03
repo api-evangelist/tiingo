@@ -110,6 +110,28 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
+    IexPriceBar:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: The date this data pertains to.
+        open:
+          type: number
+          description: The opening price for the asset on the given date.
+        high:
+          type: number
+          description: The high price for the asset on the given date.
+        low:
+          type: number
+          description: The low price for the asset on the given date.
+        close:
+          type: number
+          description: The closing price for the asset on the given date.
+        volume:
+          type: integer
+          description: The number of shares traded on IEX only. This value will only be exposed if explicitly passed to the "columns" request parameter. E.g. ?columns=open,high,low,close, volume
     IexTopOfBook:
       type: object
       properties:
@@ -167,33 +189,11 @@ components:
         askPrice:
           type: number
           description: The current ask price. IEX entitlement required
-    IexPriceBar:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The date this data pertains to.
-        open:
-          type: number
-          description: The opening price for the asset on the given date.
-        high:
-          type: number
-          description: The high price for the asset on the given date.
-        low:
-          type: number
-          description: The low price for the asset on the given date.
-        close:
-          type: number
-          description: The closing price for the asset on the given date.
-        volume:
-          type: integer
-          description: The number of shares traded on IEX only. This value will only be exposed if explicitly passed to the "columns" request parameter. E.g. ?columns=open,high,low,close, volume
   responses:
-    Unauthorized:
-      description: Missing or invalid API token.
     TooManyRequests:
       description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

@@ -173,7 +173,40 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   schemas:
+    SmallXEodBar:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: The date this data pertains to.
+        open:
+          type: number
+          description: The opening price for the asset on the given date.
+        high:
+          type: number
+          description: The high price for the asset on the given date.
+        low:
+          type: number
+          description: The low price for the asset on the given date.
+        close:
+          type: number
+          description: The closing price for the asset on the given date.
+        settlementPrice:
+          type: number
+          description: The settlement price of the contract as determined by the Small Exchange.
+        volume:
+          type: integer
+          description: The number of shares traded on the Small Exchange.
+        openInterest:
+          type: integer
+          description: The open interest of the contract.
     SmallXPriceBar:
       type: object
       properties:
@@ -239,34 +272,6 @@ components:
         tickMulitplier:
           type: number
           description: The amount you need to multiple the contract price by to get the notional (in baseCurrency) of the value of the contract. E.g. a price of 35.0 with a baseCurrency of USD and multiplier of 100, means each contract is worth $3500.00 (35 * 100).
-    SmallXEodBar:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The date this data pertains to.
-        open:
-          type: number
-          description: The opening price for the asset on the given date.
-        high:
-          type: number
-          description: The high price for the asset on the given date.
-        low:
-          type: number
-          description: The low price for the asset on the given date.
-        close:
-          type: number
-          description: The closing price for the asset on the given date.
-        settlementPrice:
-          type: number
-          description: The settlement price of the contract as determined by the Small Exchange.
-        volume:
-          type: integer
-          description: The number of shares traded on the Small Exchange.
-        openInterest:
-          type: integer
-          description: The open interest of the contract.
     SmallXTopOfBook:
       type: object
       properties:
@@ -327,11 +332,6 @@ components:
         openInterest:
           type: integer
           description: The current Open Interest for the given instrument.
-  responses:
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
-    Unauthorized:
-      description: Missing or invalid API token.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

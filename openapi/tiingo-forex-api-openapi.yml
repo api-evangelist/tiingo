@@ -146,10 +146,10 @@ components:
           type: number
           description: The current ask price.
   responses:
-    Unauthorized:
-      description: Missing or invalid API token.
     TooManyRequests:
       description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

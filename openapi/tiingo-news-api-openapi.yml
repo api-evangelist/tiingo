@@ -135,31 +135,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    NewsBulkFile:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Unique identifier specific to the bulk download file. Used to select which file to download.
-        url:
-          type: string
-          description: 'A url you can use to directly download the batch file. NOTE : This url contains your Auth Token and is meant to be a "copy/paste" url for your convenience'
-        filename:
-          type: string
-          description: The filename of the batch file.
-        batchType:
-          type: string
-          description: 'Describes what kind of batch file this is. The value will either be: "base" or "incremental". base is an entire dump of the data and incremental is a partial dump of the data. This should be used in conjunction with the startDate and endDate parameters to identify the bounds of the data dump.'
-        startDate:
-          type: string
-          format: date
-          description: The end date that was used to select the News objects to generate the batch file. This is not inclusive. publishedDate < endDate.
-        fileSizeCompressed:
-          type: integer
-          description: The size of the file in bytes compressed using gzip.
-        fileSizeUncompressed:
-          type: integer
-          description: The size of the file in bytes uncompressed.
     NewsArticle:
       type: object
       properties:
@@ -196,11 +171,36 @@ components:
           items:
             type: string
           description: Tags that are mapped and discovered by Tiingo using Tiingo's proprietary tagging algo.
+    NewsBulkFile:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier specific to the bulk download file. Used to select which file to download.
+        url:
+          type: string
+          description: 'A url you can use to directly download the batch file. NOTE : This url contains your Auth Token and is meant to be a "copy/paste" url for your convenience'
+        filename:
+          type: string
+          description: The filename of the batch file.
+        batchType:
+          type: string
+          description: 'Describes what kind of batch file this is. The value will either be: "base" or "incremental". base is an entire dump of the data and incremental is a partial dump of the data. This should be used in conjunction with the startDate and endDate parameters to identify the bounds of the data dump.'
+        startDate:
+          type: string
+          format: date
+          description: The end date that was used to select the News objects to generate the batch file. This is not inclusive. publishedDate < endDate.
+        fileSizeCompressed:
+          type: integer
+          description: The size of the file in bytes compressed using gzip.
+        fileSizeUncompressed:
+          type: integer
+          description: The size of the file in bytes uncompressed.
   responses:
-    Unauthorized:
-      description: Missing or invalid API token.
     TooManyRequests:
       description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   securitySchemes:
     apiTokenHeader:
       type: apiKey
