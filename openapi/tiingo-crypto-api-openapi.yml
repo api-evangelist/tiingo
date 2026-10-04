@@ -189,25 +189,6 @@ components:
         askExchange:
           type: string
           description: The full name of the exchange the "askPrice" and "askSize" are located on.
-    CryptoPrices:
-      type: object
-      properties:
-        ticker:
-          type: string
-          description: Ticker related to the asset.
-        baseCurrency:
-          type: string
-          description: The base pair of the cryptocurrency, e.g. "btc" for "btcusd".
-        quoteCurrency:
-          type: string
-          description: The quote pair of the cryptocurrency, e.g. "usd" for "btcusd".
-        priceData:
-          allOf:
-          - $ref: '#/components/schemas/CryptoPriceBar'
-          description: Stores the top-of-book data being returned. See the table below for the fields in this object.
-        exchangeData:
-          type: object
-          description: The underlying data for each exchange. This will only be returned if the includeRawExchangeData flag is set to "true".
     CryptoMeta:
       type: object
       properties:
@@ -241,6 +222,25 @@ components:
         topOfBookData:
           allOf:
           - $ref: '#/components/schemas/CryptoTopOfBookData'
+          description: Stores the top-of-book data being returned. See the table below for the fields in this object.
+        exchangeData:
+          type: object
+          description: The underlying data for each exchange. This will only be returned if the includeRawExchangeData flag is set to "true".
+    CryptoPrices:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Ticker related to the asset.
+        baseCurrency:
+          type: string
+          description: The base pair of the cryptocurrency, e.g. "btc" for "btcusd".
+        quoteCurrency:
+          type: string
+          description: The quote pair of the cryptocurrency, e.g. "usd" for "btcusd".
+        priceData:
+          allOf:
+          - $ref: '#/components/schemas/CryptoPriceBar'
           description: Stores the top-of-book data being returned. See the table below for the fields in this object.
         exchangeData:
           type: object

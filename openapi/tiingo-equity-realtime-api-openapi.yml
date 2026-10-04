@@ -110,33 +110,11 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   responses:
-    Unauthorized:
-      description: Missing or invalid API token.
     TooManyRequests:
       description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   schemas:
-    EquityRealtimePriceBar:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The date this data pertains to.
-        open:
-          type: number
-          description: The opening price for the asset on the given date.
-        high:
-          type: number
-          description: The high price for the asset on the given date.
-        low:
-          type: number
-          description: The low price for the asset on the given date.
-        close:
-          type: number
-          description: The closing price for the asset on the given date.
-        volume:
-          type: integer
-          description: The consolidated number of shares traded for the interval. This value will only be exposed if explicitly passed to the "columns" request parameter. E.g. ?columns=open,high,low,close, volume
     EquityRealtimeTopOfBook:
       type: object
       properties:
@@ -183,6 +161,28 @@ components:
         lqAskSize:
           type: integer
           description: The ask size component of the liquidity risk metric in shares. Corresponds to lqAskSize in the thresholdLevel 4 websocket liquidity risk metric.
+    EquityRealtimePriceBar:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: The date this data pertains to.
+        open:
+          type: number
+          description: The opening price for the asset on the given date.
+        high:
+          type: number
+          description: The high price for the asset on the given date.
+        low:
+          type: number
+          description: The low price for the asset on the given date.
+        close:
+          type: number
+          description: The closing price for the asset on the given date.
+        volume:
+          type: integer
+          description: The consolidated number of shares traded for the interval. This value will only be exposed if explicitly passed to the "columns" request parameter. E.g. ?columns=open,high,low,close, volume
   securitySchemes:
     apiTokenHeader:
       type: apiKey

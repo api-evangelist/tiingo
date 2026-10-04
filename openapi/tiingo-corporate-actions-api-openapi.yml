@@ -192,6 +192,41 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
+    DistributionYield:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: Date associated with the yield.
+        trailingDiv1Y:
+          type: string
+          description: The trailing distribution yield for the asset based on the previous 1 year of distributions.
+    Split:
+      type: object
+      properties:
+        permaTicker:
+          type: string
+          description: The Tiingo permaticker.
+        ticker:
+          type: string
+          description: Ticker related to the asset.
+        exDate:
+          type: string
+          format: date-time
+          description: The ex-Date of the split. In the Tiingo EOD Endpoints, this is the date where "splitFactor" will not be 1.0. This is also the date used for split adjustments.
+        splitFrom:
+          type: number
+          description: The prior split ratio.
+        splitTo:
+          type: number
+          description: The new split ratio, i.e. how many shares of "splitTo" are given for each share of "splitFrom".
+        splitFactor:
+          type: number
+          description: 'The ratio of splitTo from splitFrom . In other words: splitFactor = splitTo/splitFrom This ratio is helpful in calculating split price adjustments.'
+        splitStatus:
+          type: string
+          description: 'A code representing the status of split a : Active c : Cancelled'
     Distribution:
       type: object
       properties:
@@ -223,41 +258,6 @@ components:
         distributionFreqency:
           type: string
           description: 'The frequency that''s associated with this distribution. For example "q" means quarterly, meaning this is a declared quarterly distribution. The full list of codes is available here: w : Weekly bm : Bimonthly m : Monthly tm : Trimesterly q : Quarterly sa : Semiannually a : Annually ir : Irregular f : Final u : Unspecified c : Cancelled'
-    Split:
-      type: object
-      properties:
-        permaTicker:
-          type: string
-          description: The Tiingo permaticker.
-        ticker:
-          type: string
-          description: Ticker related to the asset.
-        exDate:
-          type: string
-          format: date-time
-          description: The ex-Date of the split. In the Tiingo EOD Endpoints, this is the date where "splitFactor" will not be 1.0. This is also the date used for split adjustments.
-        splitFrom:
-          type: number
-          description: The prior split ratio.
-        splitTo:
-          type: number
-          description: The new split ratio, i.e. how many shares of "splitTo" are given for each share of "splitFrom".
-        splitFactor:
-          type: number
-          description: 'The ratio of splitTo from splitFrom . In other words: splitFactor = splitTo/splitFrom This ratio is helpful in calculating split price adjustments.'
-        splitStatus:
-          type: string
-          description: 'A code representing the status of split a : Active c : Cancelled'
-    DistributionYield:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: Date associated with the yield.
-        trailingDiv1Y:
-          type: string
-          description: The trailing distribution yield for the asset based on the previous 1 year of distributions.
   responses:
     TooManyRequests:
       description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.

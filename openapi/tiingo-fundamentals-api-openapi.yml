@@ -173,6 +173,63 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
+    FundamentalsDefinition:
+      type: object
+      properties:
+        dataCode:
+          type: string
+          description: An identifier representing the fundamentals field the value belongs to. For example, "peRatio."
+        name:
+          type: string
+          description: A human-friendly readable name of the field.
+        description:
+          type: string
+          description: A description of the field.
+        statementType:
+          type: string
+          description: One of four values ("balanceSheet", "incomeStatement", "cashFlow", "overview"), representing which statement this value belongs to. For example, "netIncome" would belong to "incomeStatement".
+        units:
+          type: string
+          description: The unit the field value is in. Value is either "$", "%" or blank. If blank, value may either be an integer (like shares outstanding), or a ratio.
+    FundamentalsDaily:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: The date the daily data corresponds to.
+        marketCap:
+          type: number
+          description: The value of the field corresponding to the market capitalization.
+        enterpriseVal:
+          type: number
+          description: The value of the field corresponding to the enterprise value.
+        peRatio:
+          type: number
+          description: The value of the field corresponding to the price/earnings ratio.
+        pbRatio:
+          type: number
+          description: The value of the field corresponding to the price/book ratio.
+        trailingPEG1Y:
+          type: number
+          description: The value of the field corresponding to the trailing 1 year PEG Ratio.
+    FundamentalsStatement:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: The date the statement data was released to the public.
+        quarter:
+          type: integer
+          description: An integer corresponding to the fiscal quarter reported. A value of "0" means this is an Annual Report. A value of "1" through "4" corresponds to the respective fiscal quarter.
+        year:
+          type: integer
+          description: An integer corresponding to the fiscal year reported.
+        statementData:
+          allOf:
+          - $ref: '#/components/schemas/FundamentalsStatementData'
+          description: 'Statement data that is broken out by four different fields in a JSON object. Each fields corresponds to a statement. The four fields are: balanceSheet : Balance sheet data incomeStatement : Income Statement Data cashFlow : Cash flow statement data overview : Metrics and ratios that may be a combination of the fields from various statements Each field will return an array of "dataCode" and "value" pairs that are described in the "Statement Data Table" below.'
     FundamentalsMeta:
       type: object
       properties:
@@ -226,63 +283,6 @@ components:
           type: string
           format: date-time
           description: The timestamp the daily data/endpoint was last updated for the ticker.
-    FundamentalsDaily:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The date the daily data corresponds to.
-        marketCap:
-          type: number
-          description: The value of the field corresponding to the market capitalization.
-        enterpriseVal:
-          type: number
-          description: The value of the field corresponding to the enterprise value.
-        peRatio:
-          type: number
-          description: The value of the field corresponding to the price/earnings ratio.
-        pbRatio:
-          type: number
-          description: The value of the field corresponding to the price/book ratio.
-        trailingPEG1Y:
-          type: number
-          description: The value of the field corresponding to the trailing 1 year PEG Ratio.
-    FundamentalsDefinition:
-      type: object
-      properties:
-        dataCode:
-          type: string
-          description: An identifier representing the fundamentals field the value belongs to. For example, "peRatio."
-        name:
-          type: string
-          description: A human-friendly readable name of the field.
-        description:
-          type: string
-          description: A description of the field.
-        statementType:
-          type: string
-          description: One of four values ("balanceSheet", "incomeStatement", "cashFlow", "overview"), representing which statement this value belongs to. For example, "netIncome" would belong to "incomeStatement".
-        units:
-          type: string
-          description: The unit the field value is in. Value is either "$", "%" or blank. If blank, value may either be an integer (like shares outstanding), or a ratio.
-    FundamentalsStatement:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The date the statement data was released to the public.
-        quarter:
-          type: integer
-          description: An integer corresponding to the fiscal quarter reported. A value of "0" means this is an Annual Report. A value of "1" through "4" corresponds to the respective fiscal quarter.
-        year:
-          type: integer
-          description: An integer corresponding to the fiscal year reported.
-        statementData:
-          allOf:
-          - $ref: '#/components/schemas/FundamentalsStatementData'
-          description: 'Statement data that is broken out by four different fields in a JSON object. Each fields corresponds to a statement. The four fields are: balanceSheet : Balance sheet data incomeStatement : Income Statement Data cashFlow : Cash flow statement data overview : Metrics and ratios that may be a combination of the fields from various statements Each field will return an array of "dataCode" and "value" pairs that are described in the "Statement Data Table" below.'
     FundamentalsStatementData:
       type: object
       properties:
@@ -293,10 +293,10 @@ components:
           type: number
           description: The value of the field corresponding to the dataCode
   responses:
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
     Unauthorized:
       description: Missing or invalid API token.
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   securitySchemes:
     apiTokenHeader:
       type: apiKey
