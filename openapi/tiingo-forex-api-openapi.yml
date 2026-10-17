@@ -97,29 +97,12 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   schemas:
-    ForexPriceBar:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The date this data pertains to.
-        ticker:
-          type: string
-          description: Ticker related to the asset.
-        open:
-          type: number
-          description: The opening price for the asset on the given date.
-        high:
-          type: number
-          description: The high price for the asset on the given date.
-        low:
-          type: number
-          description: The low price for the asset on the given date.
-        close:
-          type: number
-          description: The closing price for the asset on the given date.
     ForexTopOfBook:
       type: object
       properties:
@@ -145,11 +128,28 @@ components:
         askPrice:
           type: number
           description: The current ask price.
-  responses:
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
-    Unauthorized:
-      description: Missing or invalid API token.
+    ForexPriceBar:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: The date this data pertains to.
+        ticker:
+          type: string
+          description: Ticker related to the asset.
+        open:
+          type: number
+          description: The opening price for the asset on the given date.
+        high:
+          type: number
+          description: The high price for the asset on the given date.
+        low:
+          type: number
+          description: The low price for the asset on the given date.
+        close:
+          type: number
+          description: The closing price for the asset on the given date.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

@@ -191,7 +191,43 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   schemas:
+    Distribution:
+      type: object
+      properties:
+        permaTicker:
+          type: string
+          description: The Tiingo permaticker.
+        ticker:
+          type: string
+          description: Ticker related to the asset.
+        exDate:
+          type: string
+          format: date-time
+          description: The ex-Date of the distribution. In the Tiingo EOD Endpoints, this is the date where "divCash" will be non-zero. This is also the date used for dividend price adjustments.
+        paymentDate:
+          type: string
+          format: date-time
+          description: The payment date of the distribution.
+        recordDate:
+          type: string
+          format: date-time
+          description: The record date of the distribution.
+        declarationDate:
+          type: string
+          format: date-time
+          description: The declaration date of the distribution.
+        distribution:
+          type: number
+          description: The total distribution for the given date.
+        distributionFreqency:
+          type: string
+          description: 'The frequency that''s associated with this distribution. For example "q" means quarterly, meaning this is a declared quarterly distribution. The full list of codes is available here: w : Weekly bm : Bimonthly m : Monthly tm : Trimesterly q : Quarterly sa : Semiannually a : Annually ir : Irregular f : Final u : Unspecified c : Cancelled'
     DistributionYield:
       type: object
       properties:
@@ -227,42 +263,6 @@ components:
         splitStatus:
           type: string
           description: 'A code representing the status of split a : Active c : Cancelled'
-    Distribution:
-      type: object
-      properties:
-        permaTicker:
-          type: string
-          description: The Tiingo permaticker.
-        ticker:
-          type: string
-          description: Ticker related to the asset.
-        exDate:
-          type: string
-          format: date-time
-          description: The ex-Date of the distribution. In the Tiingo EOD Endpoints, this is the date where "divCash" will be non-zero. This is also the date used for dividend price adjustments.
-        paymentDate:
-          type: string
-          format: date-time
-          description: The payment date of the distribution.
-        recordDate:
-          type: string
-          format: date-time
-          description: The record date of the distribution.
-        declarationDate:
-          type: string
-          format: date-time
-          description: The declaration date of the distribution.
-        distribution:
-          type: number
-          description: The total distribution for the given date.
-        distributionFreqency:
-          type: string
-          description: 'The frequency that''s associated with this distribution. For example "q" means quarterly, meaning this is a declared quarterly distribution. The full list of codes is available here: w : Weekly bm : Bimonthly m : Monthly tm : Trimesterly q : Quarterly sa : Semiannually a : Annually ir : Irregular f : Final u : Unspecified c : Cancelled'
-  responses:
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
-    Unauthorized:
-      description: Missing or invalid API token.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

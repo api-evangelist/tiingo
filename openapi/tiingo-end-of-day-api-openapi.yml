@@ -116,6 +116,29 @@ components:
     Unauthorized:
       description: Missing or invalid API token.
   schemas:
+    DailyMeta:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Ticker related to the asset.
+        name:
+          type: string
+          description: Full-length name of the asset.
+        exchangeCode:
+          type: string
+          description: An identifier that maps which Exchange this asset is listed on.
+        description:
+          type: string
+          description: Long-form descripton of the asset.
+        startDate:
+          type: string
+          format: date
+          description: The earliest date we have price data available for the asset. When null it means no price data available for the given asset.
+        endDate:
+          type: string
+          format: date
+          description: The latest date we have price data available for the asset. When null it means no price data available for the given asset.
     DailyPriceBar:
       type: object
       properties:
@@ -159,29 +182,6 @@ components:
         splitFactor:
           type: number
           description: The factor used to adjust prices when a company splits, reverse splits, or pays a distribution.
-    DailyMeta:
-      type: object
-      properties:
-        ticker:
-          type: string
-          description: Ticker related to the asset.
-        name:
-          type: string
-          description: Full-length name of the asset.
-        exchangeCode:
-          type: string
-          description: An identifier that maps which Exchange this asset is listed on.
-        description:
-          type: string
-          description: Long-form descripton of the asset.
-        startDate:
-          type: string
-          format: date
-          description: The earliest date we have price data available for the asset. When null it means no price data available for the given asset.
-        endDate:
-          type: string
-          format: date
-          description: The latest date we have price data available for the asset. When null it means no price data available for the given asset.
   securitySchemes:
     apiTokenHeader:
       type: apiKey

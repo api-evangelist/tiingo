@@ -165,6 +165,11 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    TooManyRequests:
+      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
+    Unauthorized:
+      description: Missing or invalid API token.
   schemas:
     YieldPool:
       type: object
@@ -190,18 +195,6 @@ components:
         totalSupplyDenomination:
           type: string
           description: The cryptocurrency, or token, the supply amount is denominated in.
-    YieldPlatform:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Formatted name of the Yield Platform.
-        platformCode:
-          type: string
-          description: A unique identifier for the Yield Platform that can be used throughout the API to map Yield Pools to the given Platform. Similar to exchangeCode in the equity endpoints.
-        network:
-          type: string
-          description: The network this platform belongs to. E.g. ETH for mainnet, AVAX for Avalanche, SOL, for Solana.".
     YieldTick:
       type: object
       properties:
@@ -233,6 +226,18 @@ components:
         availableLiquidityAmount:
           type: number
           description: The amount of liquidity available that can be borrowed.
+    YieldPlatform:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Formatted name of the Yield Platform.
+        platformCode:
+          type: string
+          description: A unique identifier for the Yield Platform that can be used throughout the API to map Yield Pools to the given Platform. Similar to exchangeCode in the equity endpoints.
+        network:
+          type: string
+          description: The network this platform belongs to. E.g. ETH for mainnet, AVAX for Avalanche, SOL, for Solana.".
     YieldMetrics:
       type: object
       properties:
@@ -339,11 +344,6 @@ components:
         changesDetected:
           type: integer
           description: The number of changes detected for any of the above variables on blockchain during the resample window.
-  responses:
-    Unauthorized:
-      description: Missing or invalid API token.
-    TooManyRequests:
-      description: Usage limit exceeded. Tiingo limits by hourly requests (reset every hour), daily requests (reset at midnight EST), and monthly bandwidth (reset the first of every month at midnight EST); there is no per-minute or per-second rate limit.
   securitySchemes:
     apiTokenHeader:
       type: apiKey
