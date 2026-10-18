@@ -31,8 +31,8 @@ tags:
   - Fintech
   - Market Data
   - Stocks
-  - Crypto
-  - FX
+  - Cryptocurrency
+  - Foreign Exchange
   - News
   - Fundamentals
   - WebSocket
@@ -112,6 +112,8 @@ apis:
   humanURL: https://www.tiingo.com/documentation/end-of-day
   baseURL: https://api.tiingo.com/tiingo/daily
   tags:
+  - Cryptocurrency
+  tags_raw:
   - Crypto
   properties:
   - type: OpenAPI
@@ -210,6 +212,8 @@ apis:
   humanURL: https://www.tiingo.com/documentation/end-of-day
   baseURL: https://api.tiingo.com/tiingo/daily
   tags:
+  - Foreign Exchange
+  tags_raw:
   - Forex
   properties:
   - type: OpenAPI
