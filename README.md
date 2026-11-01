@@ -1,4 +1,4 @@
-# Tiingo (tiingo)
+# Tiingo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,40 +64,169 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Tiingo provides high-quality financial market data APIs across US equities, crypto, FX, fundamentals, and news, popular among quantitative researchers. APIs include End-of-Day prices, IEX intraday data, Crypto, Forex, Fundamentals, and News, with REST and WebSocket access at `api.tiingo.com`.
+Tiingo provides high-quality financial market data APIs across US equities, crypto, FX, fundamentals, and news, popular among quantitative researchers. APIs include End-of-Day prices, IEX intraday data, Crypto, Forex, Fundamentals, and News, with REST and WebSocket access at api.tiingo.com.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/tiingo/refs/heads/main/apis.yml)
+**Areas:** Fintech · Market Data · Stocks · Cryptocurrency · Foreign Exchange · News · Fundamentals · WebSocket · Real-Time · Financial Data
 
-## Type
-- **x-type:** company
+## Tiingo on APIs.io
 
-## Tags
-- Fintech, Market Data, Stocks, Crypto, FX, News, Fundamentals, WebSockets
+Everything profiled for Tiingo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/tiingo/](https://apis.io/providers/tiingo/)** — or go straight to one of the APIs or properties below.
 
-## APIs
-- **End-of-Day API** (`https://api.tiingo.com/tiingo/daily`)
-- **IEX Intraday API** (`https://api.tiingo.com/iex`)
-- **Crypto API** (`https://api.tiingo.com/tiingo/crypto`)
-- **Forex API** (`https://api.tiingo.com/tiingo/fx`)
-- **Fundamentals API** (`https://api.tiingo.com/tiingo/fundamentals`)
-- **News API** (`https://api.tiingo.com/tiingo/news`)
+### APIs (13)
 
-## Notes on OpenAPI
-Tiingo does not publish a canonical OpenAPI/Swagger spec; reference is documentation-style.
+- [Tiingo BOATS API](https://apis.io/apis/tiingo/tiingo-boats-api/) — The BOATS API from Tiingo — 2 operation(s) for boats.
+- [Tiingo Corporate Actions API](https://apis.io/apis/tiingo/tiingo-corporate-actions-api/) — The Corporate Actions API from Tiingo — 5 operation(s) for corporate actions.
+- [Tiingo Crypto API](https://apis.io/apis/tiingo/tiingo-crypto-api/) — The Crypto API from Tiingo — 3 operation(s) for crypto.
+- [Tiingo Crypto Yield API](https://apis.io/apis/tiingo/tiingo-crypto-yield-api/) — The Crypto Yield API from Tiingo — 4 operation(s) for crypto yield.
+- [Tiingo End Of Day API](https://apis.io/apis/tiingo/tiingo-end-of-day-api/) — The End-of-Day API from Tiingo — 2 operation(s) for end-of-day.
+- [Tiingo Equity Realtime API](https://apis.io/apis/tiingo/tiingo-equity-realtime-api/) — The Equity Realtime API from Tiingo — 2 operation(s) for equity realtime.
+- [Tiingo Forex API](https://apis.io/apis/tiingo/tiingo-forex-api/) — The Forex API from Tiingo — 2 operation(s) for forex.
+- [Tiingo Fund Fees API](https://apis.io/apis/tiingo/tiingo-fund-fees-api/) — The Fund Fees API from Tiingo — 2 operation(s) for fund fees.
+- [Tiingo Fundamentals API](https://apis.io/apis/tiingo/tiingo-fundamentals-api/) — The Fundamentals API from Tiingo — 4 operation(s) for fundamentals.
+- [Tiingo IEX API](https://apis.io/apis/tiingo/tiingo-iex-api/) — The IEX API from Tiingo — 2 operation(s) for iex.
+- [Tiingo News API](https://apis.io/apis/tiingo/tiingo-news-api/) — The News API from Tiingo — 3 operation(s) for news.
+- [Tiingo Small Exchange API](https://apis.io/apis/tiingo/tiingo-small-exchange-api/) — The Small Exchange API from Tiingo — 4 operation(s) for small exchange.
+- [Tiingo Utilities API](https://apis.io/apis/tiingo/tiingo-utilities-api/) — The Utilities API from Tiingo — 2 operation(s) for utilities.
 
-## Timestamps
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+### Published properties
 
-## Common Properties
-- [Portal](https://www.tiingo.com/)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Tiingo WebSocket API](https://apis.io/asyncapis/tiingo/tiingo-websockets-asyncapi/)
+
+#### Event channels (6)
+
+Individual events and webhooks the provider emits.
+
+- [/boats](https://apis.io/channels/tiingo/boats/)
+- [/crypto](https://apis.io/channels/tiingo/crypto/)
+- [/equity/intraday](https://apis.io/channels/tiingo/equity-intraday/)
+- [/fx](https://apis.io/channels/tiingo/fx/)
+- [/iex](https://apis.io/channels/tiingo/iex/)
+- [/test](https://apis.io/channels/tiingo/test/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [tiingo](https://apis.io/servers/tiingo/tiingo/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Tiingo Agentic Access](https://apis.io/agentic-access/tiingo/tiingo-agentic-access/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Tiingo API](https://apis.io/collections/tiingo/open-tiingo/)
+- [Tiingo API](https://apis.io/collections/tiingo/postman-tiingo/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Tiingo Openapi Overlay](https://apis.io/overlays/tiingo/tiingo-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Tiingo Authentication](https://apis.io/security/tiingo/tiingo-authentication/)
+- [Tiingo Domain Security](https://apis.io/security/tiingo/tiingo-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Tiingo Plans Pricing](https://apis.io/plans/tiingo/tiingo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Tiingo Rate Limits](https://apis.io/rate-limits/tiingo/tiingo-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Tiingo Finops](https://apis.io/finops/tiingo/tiingo-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.tiingo.com/)
 - [Documentation](https://www.tiingo.com/documentation/general/overview)
+- [Getting started](https://www.tiingo.com/documentation/general/connecting)
+- [API reference](https://www.tiingo.com/documentation/general/overview)
 - [Pricing](https://www.tiingo.com/about/pricing)
-- [Plans](plans/tiingo-plans-pricing.yml) - partially reconciled
-- [RateLimits](rate-limits/tiingo-rate-limits.yml) - partially reconciled
-- [FinOps](finops/tiingo-finops.yml) - reconciled FOCUS-aligned
+- [Sign up](https://www.tiingo.com/)
+- [Support](https://www.tiingo.com/support)
+- [Blog](https://www.tiingo.com/blog/feed/)
+- [Terms of service](https://www.tiingo.com/tos)
+- [Privacy policy](https://www.tiingo.com/privacy)
+- [GitHub](https://github.com/tiingo)
+- [Status](https://status.tiingo.com/)
 
-## Maintainers
-**FN:** Kin Lane
+## API Evangelist rating
 
-**Email:** kin@apievangelist.com
+**Kin Score 41.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 20.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 67.3 |
+| Access clarity | 52.6 |
+
+**Agent readiness 24.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 28.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/tiingo/](https://apis.io/providers/tiingo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Tiingo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/tiingo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
